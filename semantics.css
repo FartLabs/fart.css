@@ -2,6 +2,7 @@
   background-color: var(--fart-pink-transparent);
 }
 
+html,
 body {
   background-color: var(--fart-dark-green);
   color: var(--fart-white);
