@@ -1,4 +1,11 @@
 :root {
-  --color-primary: #f9f9f9;
-  --color-secondary: #333;
+  --fart-green: #c3ef3c;
+  --fart-dark-green: #004021;
+  --fart-lighter-dark-green: #005b31;
+  --fart-darker-dark-green: #002d17;
+
+  --fart-pink: #db7093;
+  --fart-pink-transparent: #db709384;
+  --fart-white: #ddd;
+  --fart-off-white: #aaa;
 }

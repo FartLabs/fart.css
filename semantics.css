@@ -1,0 +1,145 @@
+::selection {
+  background-color: var(--fart-pink-transparent);
+}
+
+body {
+  background-color: var(--fart-dark-green);
+  color: var(--fart-white);
+  font-family: sans-serif;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Overpass", sans-serif;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin: 3.2rem 0;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 2.4rem 0;
+}
+
+h3 {
+  font-size: 2rem;
+  margin: 1.5rem 0;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+}
+
+h6 {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+p,
+ul,
+ol,
+blockquote,
+pre {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+ul,
+ol {
+  margin: 0.5rem 2rem;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin: 0;
+}
+
+li {
+  margin: 0.25rem 0;
+}
+
+blockquote {
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 0.25rem solid var(--fart-green);
+}
+
+hr,
+.page-break {
+  border-image: radial-gradient(circle, var(--fart-green) 0%, transparent 100%)
+    1;
+  max-width: 64ch;
+  margin: 0 auto;
+
+  @media (max-width: 800px) {
+    padding: 0 1rem;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 64ch;
+  margin: 1rem auto 0 auto;
+
+  @media (max-width: 800px) {
+    padding: 0 1rem;
+  }
+}
+
+a,
+.page-link,
+.page-link-visible-on-hover {
+  color: var(--fart-green);
+}
+
+a:visited,
+.page-link:visited,
+.page-link-visible-on-hover:visited {
+  color: var(--fart-off-white);
+}
+
+a:hover,
+.page-link:hover,
+.page-link-visible-on-hover:hover {
+  color: var(--fart-pink);
+}
+
+.page-link-visible-on-hover {
+  text-decoration: none;
+}
+
+.page-link-visible-on-hover:hover {
+  text-decoration: underline;
+}
+
+pre code {
+  white-space: pre-wrap;
+}
+
+footer p {
+  text-align: center;
+  width: 100%;
+}
+
+.hljs {
+  background-color: var(--fart-darker-dark-green);
+}

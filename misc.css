@@ -1,0 +1,67 @@
+.fart-section {
+  max-width: 64ch;
+  margin: 6rem auto;
+
+  @media (max-width: 800px) {
+    padding: 0 1rem;
+  }
+}
+
+.fart-inline {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
+  gap: 2px;
+}
+
+.fart-button {
+  background-color: var(--fart-darker-dark-green);
+  color: var(--fart-green);
+  border: 1px solid var(--fart-green);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.fart-button:hover {
+  background-color: var(--fart-lighter-dark-green);
+  text-decoration: underline;
+}
+
+.fart-topics {
+  margin-top: auto;
+}
+
+.fart-topic {
+  word-break: keep-all;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  background-color: var(--fart-lighter-dark-green);
+  color: var(--fart-green);
+  border-radius: 2rem;
+  display: inline-block;
+  margin: 2px;
+}
+
+.fart-logo {
+  position: absolute;
+  text-decoration: none;
+}
+
+.fart-logo:hover {
+  animation: fart-shake 560ms ease-in-out;
+}
+
+.fart-sparkle::before,
+.fart-sparkle::after {
+  content: "✨";
+}
+
+.fart-sparkle-before::before {
+  content: "✨";
+}
+
+.fart-sparkle-after:after {
+  content: "✨";
+}
