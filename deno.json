@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch main.ts",
+    "generate": "deno run -A generate_docs.ts"
+  },
+  "imports": {
+    "@std/fs": "jsr:@std/fs@^0.229.3",
+    "@std/http": "jsr:@std/http@^0.224.5",
+    "deno_css": "https://deno.land/x/css@0.3.0/mod.ts"
+  }
+}
