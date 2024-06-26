@@ -1,5 +1,6 @@
 .fart-section {
   max-width: 64ch;
+  word-wrap: break-word;
   margin: 6rem auto;
 
   @media (max-width: 800px) {
