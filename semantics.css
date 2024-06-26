@@ -83,7 +83,7 @@ blockquote {
 }
 
 hr,
-.page-break {
+.fart-break {
   border-image: radial-gradient(circle, var(--fart-green) 0%, transparent 100%)
     1;
   max-width: 64ch;
@@ -107,28 +107,28 @@ nav {
 }
 
 a,
-.page-link,
-.page-link-visible-on-hover {
+.fart-link,
+.fart-link-visible-on-hover {
   color: var(--fart-green);
 }
 
 a:visited,
-.page-link:visited,
-.page-link-visible-on-hover:visited {
+.fart-link:visited,
+.fart-link-visible-on-hover:visited {
   color: var(--fart-off-white);
 }
 
 a:hover,
-.page-link:hover,
-.page-link-visible-on-hover:hover {
+.fart-link:hover,
+.fart-link-visible-on-hover:hover {
   color: var(--fart-pink);
 }
 
-.page-link-visible-on-hover {
+.fart-link-visible-on-hover {
   text-decoration: none;
 }
 
-.page-link-visible-on-hover:hover {
+.fart-link-visible-on-hover:hover {
   text-decoration: underline;
 }
 
