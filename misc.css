@@ -8,6 +8,12 @@
   }
 }
 
+.fart-header {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .fart-inline {
   display: grid;
   grid-template-rows: 1fr;
