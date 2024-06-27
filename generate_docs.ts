@@ -2,18 +2,18 @@ import { expandGlob } from "@std/fs";
 import { parse } from "deno_css";
 
 if (import.meta.main) {
-    const files = expandGlob("*.css");
-    for await (const file of files) {
-        const css = await Deno.readTextFile(file.path);
-        const ast = parse(css);
-        console.dir(ast, { depth: Infinity });
-    }
+  const files = expandGlob("*.css");
+  for await (const file of files) {
+    const css = await Deno.readTextFile(file.path);
+    const ast = parse(css);
+    console.dir(ast, { depth: Infinity });
+  }
 
-    await Deno.writeTextFile("index.html", renderHTML());
+  await Deno.writeTextFile("index.html", renderHTML());
 }
 
 export function renderHTML(): string {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
