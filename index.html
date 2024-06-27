@@ -81,7 +81,7 @@
               <a href="#fart-sparkle">Sparkles</a>
             </li>
             <li>
-              <a href="#fart-logo">Logos</a>
+              <a href="#fart-logo">Hoverable logos</a>
             </li>
           </ul>
         </li>
@@ -253,17 +253,22 @@ body {
 
       <h3 id="fart-sparkle">Sparkles</h3>
       <p>
-        Sparkles <code>.fart-sparkle</code> are styled with a custom color and
-        hover effect.
+        Sparkles <code>.fart-sparkle</code> are styled with sparkle emojis on
+        either side of the text content.
       </p>
       <span class="fart-sparkle">Example sparkle</span>
 
-      <h3 id="fart-logo">Logos</h3>
+      <h3 id="fart-logo">Hoverable logos</h3>
       <p>
-        Logos <code>.fart-logo</code> are styled with a custom animation on
-        hover.
+        Hoverable logos <code>.fart-logo</code> are styled with a custom
+        animation on hover.
       </p>
-      <a class="fart-logo" href="#fart-logo">🧪</a>
+      <span
+        class="fart-logo"
+        href="#fart-logo"
+        style="font-size: 24pt; cursor: pointer"
+        >🧪</span
+      >
     </section>
 
     <section class="fart-section">
@@ -280,7 +285,7 @@ body {
           target="_blank"
           >&bigstar;Source<small>↗</small></a
         >
-        on GitHub!
+        on GitHub! <a class="fart-button" href="#top">Top<small>↑</small></a>
       </p>
     </section>
 
@@ -301,7 +306,6 @@ body {
         <a class="fart-button" href="https://go.fart.tools/chat" target="_blank"
           >Chat<small>↗</small></a
         >
-        <a class="fart-button" href="#top">Top<small>↑</small></a>
       </p>
     </footer>
   </body>
