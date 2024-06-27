@@ -100,10 +100,6 @@ nav {
   justify-content: space-between;
   max-width: 64ch;
   margin: 1rem auto 0 auto;
-
-  @media (max-width: 800px) {
-    padding: 0 1rem;
-  }
 }
 
 a,
@@ -130,6 +126,16 @@ a:hover,
 
 .fart-link-visible-on-hover:hover {
   text-decoration: underline;
+}
+
+pre,
+code {
+  background-color: var(--fart-darker-dark-green);
+  border-radius: 0.5rem;
+}
+
+pre {
+  padding: 1rem;
 }
 
 pre code {

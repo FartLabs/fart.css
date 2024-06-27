@@ -5,12 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fart.css</title>
     <meta name="description" content="fart.css is a CSS library." />
-    <link rel="stylesheet" href="fart.css" />
+    <link rel="stylesheet" href="/" />
   </head>
   <body>
     <section class="fart-section">
-      <h1>fart.css</h1>
-      <p>fart.css is a CSS library.</p>
+      <nav>
+        <h1 id="top" class="fart-header">fart.css</h1>
+        <a
+          class="fart-button"
+          href="https://github.com/FartLabs/fart.css"
+          target="_blank"
+          >&bigstar;Source<small>↗</small></a
+        >
+      </nav>
+
+      <p>
+        fart.css is a CSS library of styles reusable across your
+        <span class="fart-sparkle">fart-tastic</span>
+        frontends.
+      </p>
     </section>
+
+    <section class="fart-section">
+      <h2 id="toc">On this page</h2>
+      <ul>
+        <li>
+          <a href="#getting-started">Getting started</a>
+        </li>
+        <li>
+          <a href="#variables">Variables</a>
+        </li>
+        <li>
+          <a href="#fonts">Fonts</a>
+        </li>
+        <li>
+          <a href="#keyframes">Keyframes</a>
+        </li>
+        <li>
+          <a href="#semantics">Semantics</a>
+
+          <ul>
+            <li>
+              <a href="#headings">Headings</a>
+            </li>
+            <li>
+              <a href="#links">Links</a>
+            </li>
+            <li>
+              <a href="#buttons">Buttons</a>
+            </li>
+            <li>
+              <a href="#lists">Lists</a>
+            </li>
+            <li>
+              <a href="#blockquotes">Blockquotes</a>
+            </li>
+            <li>
+              <a href="#fart-break">Break</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#misc">Misc</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="fart-section">
+      <h2 id="getting-started">Getting started</h2>
+      <p>
+        To get started with fart.css, include the following line in the
+        <code>&lt;head&gt;</code> of your HTML file:
+      </p>
+      <pre><code>&lt;link rel="stylesheet" href="https://css.fart.tools" /&gt;</code></pre>
+      <p>
+        From there, you can use the classes and styles provided by the fart.css
+        CSS library.
+      </p>
+    </section>
+
+    <section class="fart-section">
+      <h2 id="variables">Variables</h2>
+      <p>
+        fart.css provides a set of CSS variables
+        <code>var(--css-variable)</code> for colors:
+      </p>
+      <p>Colors are defined in the <a href="root.css">root.css</a> file.</p>
+      <pre><code>:root {
+  --fart-green: </code><code style="font-weight: bold; color: var(--fart-green);">#c3ef3c</code><code>;
+  --fart-dark-green: </code><code style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-green);">#004021</code><code>;
+  --fart-darker-dark-green: </code><code style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-darker-dark-green);">#002d17</code><code>;
+  --fart-lighter-dark-green: </code><code style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-lighter-dark-green);">#005b31</code><code>;
+
+  --fart-pink: </code><code style="font-weight: bold; color: var(--fart-pink);">#db7093</code><code>;
+  --fart-pink-transparent: </code><code style="font-weight: bold; color: var(--fart-pink-transparent);">#db709384</code><code>;
+
+  --fart-white: </code><code style="font-weight: bold; color: var(--fart-white);">#ddd</code><code>;
+  --fart-off-white: </code><code style="font-weight: bold; color: var(--fart-off-white);">#aaa</code><code>;
+}</code></pre>
+    </section>
+
+    <section class="fart-section">
+      <h2 id="fonts">Fonts</h2>
+      <p>
+        The <a href="fonts.css">fonts.css</a> file imports
+        <a href="https://fonts.google.com/specimen/Overpass">Overpass</a> from
+        Google Fonts.
+      </p>
+    </section>
+
+    <section class="fart-section">
+      <h2 id="keyframes">Keyframes</h2>
+      <p>
+        fart.css provides a set of keyframes for animations in the
+        <a href="keyframes.css">keyframes.css</a> file.
+      </p>
+    </section>
+
+    <section class="fart-section">
+      <h2 id="semantics">Semantics</h2>
+      <p>
+        fart.css provides implicit styling for a set of common HTML elements in
+        the <a href="semantics.css">semantics.css</a> file.
+      </p>
+      <p>Body and HTML elements are styled with:</p>
+      <pre><code>html,
+body {
+  background-color: var(--fart-dark-green);
+  color: var(--fart-white);
+  font-family: sans-serif;
+  margin: 0;
+}</code></pre>
+
+      <p>
+        Check out the available styles in the
+        <a href="semantics.css">semantics.css</a> file.
+      </p>
+
+      <h3 id="headings">Headings</h3>
+      <p>
+        Headings <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are
+        styled with a custom font and size.
+      </p>
+
+      <h1>Example h1</h1>
+      <h2>Example h2</h2>
+      <h3>Example h3</h3>
+      <h4>Example h4</h4>
+      <h5>Example h5</h5>
+      <h6>Example h6</h6>
+
+      <h3 id="links">Links</h3>
+      <p>
+        Links <code>&lt;a&gt;</code>, <code>.fart-link</code>, and
+        <code>.fart-link-visible-on-hover</code> are styled with a custom color
+        and hover effect. Use <code>.fart-link-visible-on-hover</code> to style
+        links whose underline is only visible on hover.
+      </p>
+      <ul>
+        <li>
+          <a href="#links">Example link</a>
+        </li>
+        <li>
+          <a class="fart-link" href="#links">Example fart-link</a>
+        </li>
+        <li>
+          <a class="fart-link-visible-on-hover" href="#links"
+            >Example fart-link-visible-on-hover</a
+          >
+        </li>
+      </ul>
+
+      <h3 id="buttons">Buttons</h3>
+      <p>
+        Buttons <code>.fart-button</code> are have a rounded button style with a
+        custom color and hover effect.
+      </p>
+      <a class="fart-button" href="#buttons">Example button</a>
+
+      <h3 id="lists">Lists</h3>
+      <p>
+        Lists <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> are styled
+        with a custom color and padding.
+      </p>
+
+      <ul>
+        <li>Example list item 1</li>
+        <li>Example list item 2</li>
+        <li>
+          Example nested list
+          <ul>
+            <li>Example nested list item 1</li>
+            <li>Example nested list item 2</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 id="blockquotes">Blockquotes</h3>
+      <p>
+        Blockquotes <code>&lt;blockquote&gt;</code> are styled with a custom
+        color and padding.
+      </p>
+      <blockquote>Example blockquote</blockquote>
+
+      <h3 id="fart-break">Break</h3>
+      <p>
+        Use <code>&lt;hr&gt;</code> or <code>.fart-break</code> to create a
+        horizontal rule. The rule is styled with a custom color.
+      </p>
+
+      <hr />
+    </section>
+
+    <section class="fart-section">
+      <h2 id="misc">Misc</h2>
+      <p>
+        fart.css provides miscellaneous styles in the
+        <a href="misc.css">misc.css</a> file.
+      </p>
+      <p><em>TODO: Document miscellaneous styles.</em></p>
+    </section>
+
+    <section class="fart-section">
+      <h2 id="bottom">You made it to the bottom!</h2>
+      <p>
+        Thanks for checking out fart.css! If you have any questions or feedback,
+        <a class="fart-button" href="https://go.fart.tools/chat" target="_blank"
+          >Chat<small>↗</small></a
+        >
+        with the community on Discord and check out our
+        <a
+          class="fart-button"
+          href="https://github.com/FartLabs/fart.css"
+          target="_blank"
+          >&bigstar;Source<small>↗</small></a
+        >
+        on GitHub!
+      </p>
+    </section>
+
+    <hr />
+
+    <footer>
+      <p>
+        © FartLabs <a class="fart-logo" href="https://fart.tools">🧪</a><br />
+        <a class="fart-button" href="https://fart.tools/blog" target="_blank"
+          >Blog<small>↗</small></a
+        >
+        <a
+          class="fart-button"
+          href="https://github.com/FartLabs"
+          target="_blank"
+          >GitHub<small>↗</small></a
+        >
+        <a class="fart-button" href="https://go.fart.tools/chat" target="_blank"
+          >Chat<small>↗</small></a
+        >
+        <a class="fart-button" href="#top">Top<small>↑</small></a>
+      </p>
+    </footer>
   </body>
 </html>
