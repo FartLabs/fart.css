@@ -47,7 +47,6 @@
         </li>
         <li>
           <a href="#semantics">Semantics</a>
-
           <ul>
             <li>
               <a href="#headings">Headings</a>
@@ -56,21 +55,35 @@
               <a href="#links">Links</a>
             </li>
             <li>
-              <a href="#buttons">Buttons</a>
-            </li>
-            <li>
               <a href="#lists">Lists</a>
             </li>
             <li>
               <a href="#blockquotes">Blockquotes</a>
             </li>
             <li>
-              <a href="#fart-break">Break</a>
+              <a href="#fart-hr">Horizontal rule</a>
             </li>
           </ul>
         </li>
         <li>
           <a href="#misc">Misc</a>
+          <ul>
+            <li>
+              <a href="#buttons">Buttons</a>
+            </li>
+            <li>
+              <a href="#fart-section">Sections</a>
+            </li>
+            <li>
+              <a href="#fart-header">Headers</a>
+            </li>
+            <li>
+              <a href="#fart-sparkle">Sparkles</a>
+            </li>
+            <li>
+              <a href="#fart-logo">Logos</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </section>
@@ -168,24 +181,14 @@ body {
       </p>
       <ul>
         <li>
-          <a href="#links">Example link</a>
-        </li>
-        <li>
-          <a class="fart-link" href="#links">Example fart-link</a>
+          <a class="fart-link" href="#links">Example .fart-link</a>
         </li>
         <li>
           <a class="fart-link-visible-on-hover" href="#links"
-            >Example fart-link-visible-on-hover</a
+            >Example .fart-link-visible-on-hover</a
           >
         </li>
       </ul>
-
-      <h3 id="buttons">Buttons</h3>
-      <p>
-        Buttons <code>.fart-button</code> are have a rounded button style with a
-        custom color and hover effect.
-      </p>
-      <a class="fart-button" href="#buttons">Example button</a>
 
       <h3 id="lists">Lists</h3>
       <p>
@@ -212,10 +215,10 @@ body {
       </p>
       <blockquote>Example blockquote</blockquote>
 
-      <h3 id="fart-break">Break</h3>
+      <h3 id="fart-hr">Horizontal rule</h3>
       <p>
-        Use <code>&lt;hr&gt;</code> or <code>.fart-break</code> to create a
-        horizontal rule. The rule is styled with a custom color.
+        Use <code>&lt;hr&gt;</code> or <code>.fart-hr</code> to create a
+        horizontal rule. The rule is styled with <code>var(--fart-green)</code>.
       </p>
 
       <hr />
@@ -227,7 +230,40 @@ body {
         fart.css provides miscellaneous styles in the
         <a href="misc.css">misc.css</a> file.
       </p>
-      <p><em>TODO: Document miscellaneous styles.</em></p>
+
+      <h3 id="buttons">Buttons</h3>
+      <p>
+        Buttons <code>.fart-button</code> are have a rounded button style with a
+        custom color and hover effect.
+      </p>
+      <a class="fart-button" href="#buttons">Example button</a>
+
+      <h3 id="fart-section">Sections</h3>
+      <p>
+        Sections <code>.fart-section</code> are styled with a custom color and
+        padding.
+      </p>
+
+      <h3 id="fart-header">Headers</h3>
+      <p>
+        Headers <code>.fart-header</code> are styled with a custom font and
+        size.
+      </p>
+      <span class="fart-header">Example header</span>
+
+      <h3 id="fart-sparkle">Sparkles</h3>
+      <p>
+        Sparkles <code>.fart-sparkle</code> are styled with a custom color and
+        hover effect.
+      </p>
+      <span class="fart-sparkle">Example sparkle</span>
+
+      <h3 id="fart-logo">Logos</h3>
+      <p>
+        Logos <code>.fart-logo</code> are styled with a custom color and hover
+        effect.
+      </p>
+      <a class="fart-logo" href="#fart-logo">🧪</a>
     </section>
 
     <section class="fart-section">
