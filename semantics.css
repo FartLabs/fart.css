@@ -83,7 +83,7 @@ blockquote {
 }
 
 hr,
-.fart-break {
+.fart-hr {
   border-image: radial-gradient(circle, var(--fart-green) 0%, transparent 100%)
     1;
   max-width: 64ch;
