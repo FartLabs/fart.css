@@ -1,7 +1,8 @@
 # fart.css
 
-fart.css is a CSS library of styles reusable across your ✨fart-tastic✨
-frontends.
+CSS library reusable across your ✨fart-tastic✨ frontends.
+
+[![fart.css book cover](./bookcover.png)](https://css.fart.tools)
 
 ## Usage
 
