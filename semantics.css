@@ -147,6 +147,10 @@ footer p {
   width: 100%;
 }
 
+img {
+  max-width: 100%;
+}
+
 .hljs {
   background-color: var(--fart-darker-dark-green);
 }
