@@ -1,5 +1,5 @@
 import { serveDir } from "@std/http";
-import { appendHalloweenCSS } from "./halloween.ts";
+import { appendHalloweenCSS, checkHalloweenWeek } from "./halloween.ts";
 
 Deno.serve(async (request) => {
   const url = new URL(request.url);
@@ -8,7 +8,10 @@ Deno.serve(async (request) => {
       url.pathname === "/fart.css") &&
     request.headers.get("Accept")?.includes("text/css")
   ) {
-    const fartCSS = appendHalloweenCSS(await Deno.readTextFile("fart.css"));
+    const fartCSS = appendHalloweenCSS(
+      await Deno.readTextFile("fart.css"),
+      checkHalloweenWeek() || url.searchParams.has("halloween"),
+    );
     return new Response(
       fartCSS,
       {
