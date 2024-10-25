@@ -1,0 +1,19 @@
+:root {
+  --fart-orange: #ff7f00;
+  --fart-dark-orange: #ff6600;
+  --fart-lighter-dark-orange: #ff8f00;
+  --fart-darker-dark-orange: #cc5500;
+
+  --fart-purple: #800080;
+  --fart-purple-transparent: #80008084;
+
+  /* Overwrite the green colors with orange. */
+  --fart-green: var(--fart-orange);
+  --fart-dark-green: var(--fart-dark-orange);
+  --fart-lighter-dark-green: var(--fart-lighter-dark-orange);
+  --fart-darker-dark-green: var(--fart-darker-dark-orange);
+
+  /* Overwrite the pink colors with purple. */
+  --fart-pink: var(--fart-purple);
+  --fart-pink-transparent: var(--fart-purple-transparent);
+}
