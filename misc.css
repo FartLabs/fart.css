@@ -62,13 +62,13 @@
 
 .fart-sparkle::before,
 .fart-sparkle::after {
-  content: "✨";
+  content: var(--fart-sparkle-text);
 }
 
 .fart-sparkle-before::before {
-  content: "✨";
+  content: var(--fart-sparkle-text);
 }
 
 .fart-sparkle-after:after {
-  content: "✨";
+  content: var(--fart-sparkle-text);
 }
