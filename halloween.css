@@ -1,19 +1,21 @@
 :root {
-  --fart-orange: #ff7f00;
-  --fart-dark-orange: #ff6600;
-  --fart-lighter-dark-orange: #ff8f00;
-  --fart-darker-dark-orange: #cc5500;
-
   --fart-purple: #800080;
-  --fart-purple-transparent: #80008084;
+  --fart-dark-purple: #660066;
+  --fart-lighter-dark-purple: #8f008f;
+  --fart-darker-dark-purple: #550055;
 
-  /* Overwrite the green colors with orange. */
-  --fart-green: var(--fart-orange);
-  --fart-dark-green: var(--fart-dark-orange);
-  --fart-lighter-dark-green: var(--fart-lighter-dark-orange);
-  --fart-darker-dark-green: var(--fart-darker-dark-orange);
+  --fart-orange: #ff7f00;
+  --fart-orange-transparent: #ff7f0055;
 
-  /* Overwrite the pink colors with purple. */
-  --fart-pink: var(--fart-purple);
-  --fart-pink-transparent: var(--fart-purple-transparent);
+  /* Overwrite the green colors with purple. */
+  --fart-dark-green: var(--fart-dark-purple);
+  --fart-lighter-dark-green: var(--fart-lighter-dark-purple);
+  --fart-darker-dark-green: var(--fart-darker-dark-purple);
+
+  /* Overwrite the pink colors with orange. */
+  --fart-pink: var(--fart-orange);
+  --fart-pink-transparent: var(--fart-orange-transparent);
+
+  /* Overwrite the sparkle text with a spooky sparkle. */
+  --fart-sparkle-text: "🦇";
 }
