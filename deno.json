@@ -1,9 +1,10 @@
 {
   "lock": false,
   "tasks": {
-    "dev": "deno run -A --watch main.ts"
+    "dev": "deno run -A --watch main.ts",
+    "molt": "deno run --allow-env --allow-read --allow-write='~/.local,.' --allow-run=git,deno --allow-net=jsr.io jsr:@molt/cli --write"
   },
   "imports": {
-    "@std/http": "jsr:@std/http@^0.224.5"
+    "@std/http": "jsr:@std/http@^1.0.0"
   }
 }
