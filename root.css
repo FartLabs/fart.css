@@ -1,7 +1,9 @@
 :root {
+  --gregory-green: #21b021;
+
   --fart-green: #c3ef3c;
   --fart-dark-green: #004021;
-  --fart-lighter-dark-green: #005b31;
+  --fart-lighter-dark-green: var(--gregory-green);
   --fart-darker-dark-green: #002d17;
 
   --fart-pink: #db7093;
