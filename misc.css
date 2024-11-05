@@ -44,7 +44,7 @@
   word-break: keep-all;
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
-  background-color: var(--fart-lighter-dark-green);
+  background-color: var(--fart-dark-green);
   color: var(--fart-green);
   border-radius: 2rem;
   display: inline-block;
