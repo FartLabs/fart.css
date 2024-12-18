@@ -1,10 +1,10 @@
 ::selection {
-  background-color: var(--fart-pink-transparent);
+  background-color: var(--fart-highlight);
 }
 
 html,
 body {
-  background-color: var(--fart-dark-green);
+  background-color: var(--fart-dark-primary);
   color: var(--fart-white);
   font-family: sans-serif;
   margin: 0;
@@ -79,13 +79,16 @@ blockquote {
   margin: 0.5rem 0;
   padding: 0.5rem 1rem;
   background-color: rgba(255, 255, 255, 0.1);
-  border-left: 0.25rem solid var(--fart-green);
+  border-left: 0.25rem solid var(--fart-primary);
 }
 
 hr,
 .fart-hr {
-  border-image: radial-gradient(circle, var(--fart-green) 0%, transparent 100%)
-    1;
+  border-image: radial-gradient(
+    circle,
+    var(--fart-primary) 0%,
+    transparent 100%
+  ) 1;
   max-width: 64ch;
   margin: 0 auto;
 
@@ -105,7 +108,7 @@ nav {
 a,
 .fart-link,
 .fart-link-visible-on-hover {
-  color: var(--fart-green);
+  color: var(--fart-primary);
 }
 
 a:visited,
@@ -117,7 +120,7 @@ a:visited,
 a:hover,
 .fart-link:hover,
 .fart-link-visible-on-hover:hover {
-  color: var(--fart-pink);
+  color: var(--fart-secondary);
 }
 
 .fart-link-visible-on-hover {
@@ -130,7 +133,7 @@ a:hover,
 
 pre,
 code {
-  background-color: var(--fart-darker-dark-green);
+  background-color: var(--fart-darker-dark-primary);
   border-radius: 0.5rem;
 }
 
@@ -152,5 +155,5 @@ img {
 }
 
 .hljs {
-  background-color: var(--fart-darker-dark-green);
+  background-color: var(--fart-darker-dark-primary);
 }

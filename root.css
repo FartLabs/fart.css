@@ -1,6 +1,10 @@
 :root {
-  --gregory-green: #21b021;
+  --fart-sparkle-text: "✨";
 
+  --fart-white: #ddd;
+  --fart-off-white: #aaa;
+
+  --gregory-green: #21b021;
   --fart-green: #c3ef3c;
   --fart-dark-green: #004021;
   --fart-lighter-dark-green: #005b31;
@@ -8,8 +12,12 @@
 
   --fart-pink: #db7093;
   --fart-pink-transparent: #db709384;
-  --fart-white: #ddd;
-  --fart-off-white: #aaa;
 
-  --fart-sparkle-text: "✨";
+  --fart-primary: var(--fart-green);
+  --fart-lighter-dark-primary: var(--fart-lighter-dark-green);
+  --fart-dark-primary: var(--fart-dark-green);
+  --fart-darker-dark-primary: var(--fart-darker-dark-green);
+
+  --fart-secondary: var(--fart-pink);
+  --fart-highlight: var(--fart-pink-transparent);
 }

@@ -7,14 +7,14 @@
   --fart-orange: #ff7f00;
   --fart-orange-transparent: #ff7f0055;
 
-  /* Overwrite the green colors with purple. */
-  --fart-dark-green: var(--fart-dark-purple);
-  --fart-lighter-dark-green: var(--fart-lighter-dark-purple);
-  --fart-darker-dark-green: var(--fart-darker-dark-purple);
+  /* Overwrite the colors with purple. */
+  --fart-dark-primary: var(--fart-dark-purple);
+  --fart-lighter-dark-primary: var(--fart-lighter-dark-purple);
+  --fart-darker-dark-primary: var(--fart-darker-dark-purple);
 
-  /* Overwrite the pink colors with orange. */
-  --fart-pink: var(--fart-orange);
-  --fart-pink-transparent: var(--fart-orange-transparent);
+  /* Overwrite the colors with orange. */
+  --fart-secondary: var(--fart-orange);
+  --fart-highlight: var(--fart-orange-transparent);
 
   /* Overwrite the sparkle text with a spooky sparkle. */
   --fart-sparkle-text: "🦇";

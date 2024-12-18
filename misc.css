@@ -22,9 +22,9 @@
 }
 
 .fart-button {
-  background-color: var(--fart-darker-dark-green);
-  color: var(--fart-green);
-  border: 1px solid var(--fart-green);
+  background-color: var(--fart-darker-dark-primary);
+  color: var(--fart-primary);
+  border: 1px solid var(--fart-primary);
   border-radius: 5px;
   padding: 0.25rem 0.5rem;
   text-decoration: none;
@@ -32,7 +32,7 @@
 }
 
 .fart-button:hover {
-  background-color: var(--fart-lighter-dark-green);
+  background-color: var(--fart-lighter-dark-primary);
   text-decoration: underline;
 }
 
@@ -44,8 +44,8 @@
   word-break: keep-all;
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
-  background-color: var(--fart-lighter-dark-green);
-  color: var(--fart-green);
+  background-color: var(--fart-lighter-dark-primary);
+  color: var(--fart-primary);
   border-radius: 2rem;
   display: inline-block;
   margin: 2px;

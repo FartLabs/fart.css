@@ -114,18 +114,39 @@
       <pre
       >
 <code>:root {
-  --fart-green: </code><code style="font-weight: bold; color: var(--fart-green);">#c3ef3c</code><code>;
-  --fart-dark-green: </code><code style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-green);">#004021</code><code>;
-  --fart-darker-dark-green: </code><code style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-darker-dark-green);">#002d17</code><code>;
-  --fart-lighter-dark-green: </code><code style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-lighter-dark-green);">#005b31</code><code>;
+  --fart-primary: </code><code class="preview-color" style="font-weight: bold; color: var(--fart-primary);">#c3ef3c</code><code>;
+  --fart-dark-primary: </code><code class="preview-color"style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-primary);">#004021</code><code>;
+  --fart-darker-dark-primary: </code><code class="preview-color"style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-darker-dark-primary);">#002d17</code><code>;
+  --fart-lighter-dark-primary: </code><code class="preview-color"style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-lighter-dark-primary);">#005b31</code><code>;
 
-  --fart-pink: </code><code style="font-weight: bold; color: var(--fart-pink);">#db7093</code><code>;
-  --fart-pink-transparent: </code><code style="font-weight: bold; color: var(--fart-pink-transparent);">#db709384</code><code>;
+  --fart-secondary: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-secondary);">#db7093</code><code>;
+  --fart-highlight: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-highlight);">#db709384</code><code>;
 
-  --fart-white: </code><code style="font-weight: bold; color: var(--fart-white);">#ddd</code><code>;
-  --fart-off-white: </code><code style="font-weight: bold; color: var(--fart-off-white);">#aaa</code><code>;
+  --fart-white: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-white);">#ddd</code><code>;
+  --fart-off-white: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-off-white);">#aaa</code><code>;
 }</code></pre
       >
+
+      <script>
+        addEventListener("load", () => {
+          const root = document.querySelector(":root");
+          const rootStyles = getComputedStyle(root);
+
+          document.querySelectorAll(".preview-color").forEach(
+            (el) => {
+              const variableName =
+                el.style.color.match(/--[-a-z]+/i)[0];
+              if (!variableName) {
+                throw new Error("Could not find variable name");
+              }
+
+              el.textContent = rootStyles.getPropertyValue(
+                variableName,
+              );
+            },
+          );
+        });
+      </script>
     </section>
 
     <section class="fart-section">
@@ -156,7 +177,7 @@
       >
 <code>html,
 body {
-  background-color: var(--fart-dark-green);
+  background-color: var(--fart-dark-primary);
   color: var(--fart-white);
   font-family: sans-serif;
   margin: 0;
@@ -226,7 +247,8 @@ body {
       <h3 id="fart-hr">Horizontal rule</h3>
       <p>
         Use <code>&lt;hr&gt;</code> or <code>.fart-hr</code> to create a
-        horizontal rule. The rule is styled with <code>var(--fart-green)</code>.
+        horizontal rule. The rule is styled with <code>var(--fart-primary)</code
+        >.
       </p>
 
       <hr />
