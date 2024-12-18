@@ -1,0 +1,19 @@
+:root {
+  --fart-blue: #7474f8;
+  --fart-lighter-dark-blue: #08087a;
+  --fart-dark-blue: #09095f;
+  --fart-darker-dark-blue: #050542;
+
+  --fart-silver: #c0c0c0;
+  --fart-silver-transparent: #c0c0c055;
+
+  --fart-primary: var(--fart-blue);
+  --fart-dark-primary: var(--fart-dark-blue);
+  --fart-lighter-dark-primary: var(--fart-lighter-dark-blue);
+  --fart-darker-dark-primary: var(--fart-darker-dark-blue);
+
+  --fart-secondary: var(--fart-silver);
+  --fart-highlight: var(--fart-silver-transparent);
+
+  --fart-sparkle-text: "❄️";
+}

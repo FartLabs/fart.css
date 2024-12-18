@@ -1,6 +1,7 @@
 import { serveDir } from "@std/http";
-import { checkHalloweenWeek } from "./lib/css/halloween.ts";
 import { appendCSS } from "./lib/css/append-css.ts";
+import { checkHalloweenWeek } from "./lib/css/halloween.ts";
+import { checkDecemberJanuary } from "./lib/css/december-january.ts";
 
 if (import.meta.main) {
   Deno.serve(async (request) => {
@@ -25,6 +26,12 @@ if (import.meta.main) {
             css: '@import "halloween.css";\n',
             test: (date) =>
               checkHalloweenWeek(date) || url.searchParams.has("halloween"),
+          },
+          {
+            css: '@import "december-january.css";\n',
+            test: (date) =>
+              checkDecemberJanuary(date) ||
+              url.searchParams.has("december-january"),
           },
         ],
       );
