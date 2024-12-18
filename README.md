@@ -16,10 +16,21 @@ Import `fart.css` in the `<head>` of your HTML document.
 />
 ```
 
-### Documentation
+## Documentation
 
 Refer to <https://css.fart.tools> to learn how to use the fart.css CSS library
 in your own ✨fart-tastic✨ frontends.
+
+## Websites that use fart.css
+
+- [fartlabs.org](https://fartlabs.org)
+- [css.fart.tools](https://css.fart.tools)
+- [concentration.fart.tools](https://concentration.fart.tools)
+- [etok.me](https://etok.me)
+- [fart.johncarlomanuel.com](https://fart.johncarlomanuel.com)
+
+[Open an issue](https://github.com/FartLabs/fart.css/issues/new) to add your
+website to this list.
 
 ---
 
