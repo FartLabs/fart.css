@@ -10,9 +10,16 @@ if (import.meta.main) {
         url.pathname === "/fart.css") &&
       request.headers.get("Accept")?.includes("text/css")
     ) {
-      const minFartCSS = await Deno.readTextFile("fart.css");
-      const fartCSS = url.searchParams.has("minimal") ? minFartCSS : appendCSS(
-        minFartCSS,
+      const fartCSS = await Deno.readTextFile("fart.css");
+      if (url.searchParams.has("no-theme")) {
+        return new Response(
+          fartCSS,
+          { headers: new Headers({ "Content-Type": "text/css" }) },
+        );
+      }
+
+      const modifiedFartCSS = appendCSS(
+        fartCSS,
         [
           {
             css: '@import "halloween.css";\n',
@@ -23,7 +30,7 @@ if (import.meta.main) {
       );
 
       return new Response(
-        fartCSS,
+        modifiedFartCSS,
         {
           headers: new Headers({ "Content-Type": "text/css" }),
         },
