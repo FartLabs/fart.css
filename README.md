@@ -24,6 +24,7 @@ in your own ✨fart-tastic✨ frontends.
 ## Websites that use fart.css
 
 - [fartlabs.org](https://github.com/FartLabs/fartlabs.org)
+- [shop.fartlabs.org](https://github.com/FartLabs/shop)
 - [css.fart.tools](https://github.com/FartLabs/css.fart.tools)
 - [concentration.fart.tools](https://github.com/FartLabs/concentration)
 - [etok.me](https://github.com/EthanThatOneKid/etok.me)
