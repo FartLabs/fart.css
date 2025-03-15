@@ -72,3 +72,26 @@
 .fart-sparkle-after:after {
   content: var(--fart-sparkle-text);
 }
+
+@media print {
+  :root {
+    --fart-primary: black;
+  }
+
+  @page {
+    margin: 0;
+    size: A4;
+    margin-bottom: 0.5cm;
+    margin-top: 0.5cm;
+    margin-left: 0.5cm;
+    margin-right: 0.5cm;
+  }
+
+  body * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
