@@ -2,7 +2,7 @@
   "lock": false,
   "tasks": {
     "dev": "deno run -A --watch main.ts",
-    "molt": "deno run --allow-env --allow-read --allow-write='~/.local,.' --allow-run=git,deno --allow-net=jsr.io jsr:@molt/cli --write"
+    "outdated": "deno outdated --update --latest"
   },
   "imports": {
     "@std/http": "jsr:@std/http@^1.0.0"
