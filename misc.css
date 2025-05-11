@@ -22,7 +22,7 @@
 }
 
 .fart-button {
-  background-color: var(--fart-darker-dark-primary);
+  background-color: var(--fart-dark-primary);
   color: var(--fart-primary);
   border: 1px solid var(--fart-primary);
   border-radius: 5px;
