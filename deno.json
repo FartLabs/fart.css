@@ -1,11 +1,12 @@
 {
   "lock": false,
   "name": "@fartlabs/css",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "exports": {
     ".": "./components/mod.ts",
     "./button": "./components/button.tsx",
     "./header": "./components/header.tsx",
+    "./horizontal-rule": "./components/horizontal-rule.tsx",
     "./link": "./components/link.tsx",
     "./section": "./components/section.tsx",
     "./shake": "./components/shake.tsx",
