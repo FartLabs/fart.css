@@ -73,6 +73,39 @@
   content: var(--fart-sparkle-text);
 }
 
+.fart-text-gradient {
+  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(rgb(163, 255, 176), rgba(15, 23, 42, 0.1));
+}
+
+.fart-text-special {
+  display: inline-block;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  margin-top: 0.25rem;
+  margin-right: 0.5rem;
+  border-radius: 0.375rem;
+  color: #fff;
+  background-image: linear-gradient(
+    to top,
+    rgba(209, 213, 219, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
+  box-shadow:
+    rgb(255, 255, 255) 0px 0px 0px 0px,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+  backdrop-filter: blur(8px);
+}
+
 @media print {
   :root {
     --fart-primary: black;
