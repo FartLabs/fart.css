@@ -1,7 +1,7 @@
 {
   "lock": false,
   "tasks": {
-    "dev": "deno run -A --watch main.ts",
+    "dev": "deno serve -A --watch main.ts",
     "outdated": "deno outdated --update --latest"
   },
   "imports": {
