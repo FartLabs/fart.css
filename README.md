@@ -1,8 +1,8 @@
-# fart.css
+# Fart.css
 
 CSS library reusable across your ✨fart-tastic✨ frontends.
 
-[![fart.css book cover](./bookcover.png)](https://css.fart.tools)
+[![Fart.css book cover](./bookcover.png)](https://css.fart.tools)
 
 ## Usage
 
@@ -18,10 +18,10 @@ Import `fart.css` in the `<head>` of your HTML document.
 
 ## Documentation
 
-Refer to <https://css.fart.tools> to learn how to use the fart.css CSS library
+Refer to <https://css.fart.tools> to learn how to use the Fart.css CSS library
 in your own ✨fart-tastic✨ frontends.
 
-## Websites that use fart.css
+## Websites that use Fart.css
 
 - [fartlabs.org](https://github.com/FartLabs/fartlabs.org)
 - [shop.fartlabs.org](https://github.com/FartLabs/shop)
