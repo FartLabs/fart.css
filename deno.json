@@ -1,10 +1,31 @@
 {
   "lock": false,
+  "name": "@fartlabs/css",
+  "version": "0.0.1",
+  "exports": {
+    ".": "./components/mod.ts",
+    "./button": "./components/button.tsx",
+    "./header": "./components/header.tsx",
+    "./link": "./components/link.tsx",
+    "./section": "./components/section.tsx",
+    "./shake": "./components/shake.tsx",
+    "./sparkle": "./components/sparkle.tsx",
+    "./text-gradient": "./components/text-gradient.tsx",
+    "./text-special": "./components/text-special.tsx"
+  },
   "tasks": {
     "dev": "deno serve -A --watch main.ts",
+    "lint": "deno lint && deno doc --lint  components/**/*.ts",
+    "check": "deno check **/*.ts",
+    "publish:dry": "deno publish --dry-run --allow-dirty",
     "outdated": "deno outdated --update --latest"
   },
   "imports": {
+    "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.10",
     "@std/http": "jsr:@std/http@^1.0.0"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "@fartlabs/htx"
   }
 }
