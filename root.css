@@ -5,10 +5,11 @@
   --fart-off-white: #aaa;
 
   --gregory-green: #21b021;
-  --fart-green: #c3ef3c;
-  --fart-dark-green: #004021;
-  --fart-lighter-dark-green: #005b31;
-  --fart-darker-dark-green: #002d17;
+  --fart-green: #a3ffb0;
+  --fart-lighter-dark-green: #004021;
+  --fart-dark-green: #0f2a0f;
+  --fart-darker-dark-green: #0a1f0a;
+  --fart-darker-green-transparent: rgba(74, 140, 86, 0.3);
 
   --fart-pink: #db7093;
   --fart-pink-transparent: #db709384;
@@ -19,5 +20,5 @@
   --fart-darker-dark-primary: var(--fart-darker-dark-green);
 
   --fart-secondary: var(--fart-pink);
-  --fart-highlight: var(--fart-pink-transparent);
+  --fart-highlight: var(--fart-darker-green-transparent);
 }

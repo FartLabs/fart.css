@@ -13,7 +13,7 @@ Import `fart.css` in the `<head>` of your HTML document.
   rel="stylesheet"
   type="text/css"
   href="https://css.fart.tools"
-/>
+>
 ```
 
 ## Documentation
