@@ -1,4 +1,5 @@
 import { serveDir } from "@std/http/file-server";
+import { accepts } from "@std/http/negotiation";
 
 const fartCss = await Deno.readTextFile("fart.css");
 
@@ -8,12 +9,11 @@ export default {
     if (
       url.pathname === "/" &&
       request.method === "GET" &&
-      request.headers.get("Accept")?.includes("text/css")
+      accepts(request).includes("text/css")
     ) {
-      return new Response(
-        fartCss,
-        { headers: new Headers({ "Content-Type": "text/css" }) },
-      );
+      return new Response(fartCss, {
+        headers: new Headers({ "Content-Type": "text/css" }),
+      });
     }
 
     return serveDir(request);
