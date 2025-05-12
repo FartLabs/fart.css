@@ -74,20 +74,14 @@
 }
 
 .fart-text-gradient {
-  margin-bottom: 1.5rem;
-  font-size: 3.125rem;
   font-weight: bold;
   letter-spacing: -0.025em;
-  font-weight: 600;
   line-height: 1;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(rgb(163, 255, 176), rgba(15, 23, 42, 0.1));
-  background-size: 100% 100%;
-  background-position: 0% 0%;
-  background-repeat: no-repeat;
 }
 
 .fart-text-special {
