@@ -16,7 +16,7 @@ export function TextSpecial(props: TextSpecialProps): string {
   return (
     <SPAN
       {...props}
-      class={`fart-text-gradient${props.class ? ` ${props.class}` : ""}`}
+      class={`fart-text-special${props.class ? ` ${props.class}` : ""}`}
     >
       {props.children}
     </SPAN>
