@@ -1,7 +1,7 @@
 {
   "lock": false,
   "name": "@fartlabs/css",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "exports": {
     ".": "./components/mod.ts",
     "./button": "./components/button.tsx",
@@ -15,15 +15,22 @@
     "./text-special": "./components/text-special.tsx"
   },
   "tasks": {
-    "dev": "deno serve -A --watch main.ts",
+    "dev": {
+      "command": "deno serve -A --watch main.ts",
+      "description": "Run the dev server",
+      "dependencies": ["generate"]
+    },
     "lint": "deno lint && deno doc --lint  components/**/*.ts",
     "check": "deno check **/*.ts",
     "publish:dry": "deno publish --dry-run --allow-dirty",
-    "outdated": "deno outdated --update --latest"
+    "outdated": "deno outdated --update --latest",
+    "generate": "deno --allow-write codegen/generate.ts"
   },
   "imports": {
     "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.10",
-    "@std/http": "jsr:@std/http@^1.0.0"
+    "@std/http": "jsr:@std/http@^1.0.0",
+    "alea": "npm:alea@^1.0.1",
+    "simplex-noise": "npm:simplex-noise@^4.0.3"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
