@@ -17,8 +17,7 @@
   "tasks": {
     "dev": {
       "command": "deno serve -A --watch main.ts",
-      "description": "Run the dev server",
-      "dependencies": ["generate"]
+      "description": "Run the dev server"
     },
     "lint": "deno lint && deno doc --lint  components/**/*.ts",
     "check": "deno check **/*.ts",

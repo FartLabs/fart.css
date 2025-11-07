@@ -3,7 +3,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-empty.svg");
+  border-image-source: url("tube-empty.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -18,7 +18,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-green.svg");
+  border-image-source: url("tube-green.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -33,7 +33,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-purple.svg");
+  border-image-source: url("tube-purple.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -48,7 +48,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-yellow.svg");
+  border-image-source: url("tube-yellow.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -63,7 +63,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-turquoise.svg");
+  border-image-source: url("tube-turquoise.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -78,7 +78,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-magenta.svg");
+  border-image-source: url("tube-magenta.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -93,7 +93,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-orange.svg");
+  border-image-source: url("tube-orange.svg");
   border-style: solid;
   border-radius: 2em;
 }
@@ -108,7 +108,7 @@
   border-image-width: 28px;
   border-image-outset: 4px;
   border-image-repeat: stretch stretch;
-  border-image-source: url("https://css.fart.tools/tubes/tube-blue.svg");
+  border-image-source: url("tube-blue.svg");
   border-style: solid;
   border-radius: 2em;
 }

@@ -10,6 +10,26 @@
     />
     <link rel="stylesheet" type="text/css" href="/fart.css" />
     <link rel="icon" href="https://fart.tools/fl-logo.png" />
+    <style>
+      /* Page-specific styles for index.html */
+      .border-tubes-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3em;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .border-tube-content {
+        margin: 1.5rem;
+      }
+
+      .fart-logo-example {
+        font-size: 24pt;
+        cursor: pointer;
+      }
+    </style>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -137,16 +157,16 @@
       <p>Colors are defined in the <a href="root.css">root.css</a> file.</p>
       <pre>
 <code>:root {
-  --fart-primary: </code><code class="preview-color" style="font-weight: bold; color: var(--fart-primary);">#c3ef3c</code><code>;
-  --fart-dark-primary: </code><code class="preview-color"style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-primary);">#004021</code><code>;
-  --fart-darker-dark-primary: </code><code class="preview-color"style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-darker-dark-primary);">#002d17</code><code>;
-  --fart-lighter-dark-primary: </code><code class="preview-color"style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-lighter-dark-primary);">#005b31</code><code>;
+  --fart-primary: <span class="preview-color" data-var="--fart-primary" style="font-weight: bold; color: var(--fart-primary);">#7dd87f</span>;
+  --fart-dark-primary: <span class="preview-color" data-var="--fart-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-primary);">#0f2a0f</span>;
+  --fart-darker-dark-primary: <span class="preview-color" data-var="--fart-darker-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-darker-dark-primary);">#0a1f0a</span>;
+  --fart-lighter-dark-primary: <span class="preview-color" data-var="--fart-lighter-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-lighter-dark-primary);">#004021</span>;
 
-  --fart-secondary: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-secondary);">#db7093</code><code>;
-  --fart-highlight: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-highlight);">#db709384</code><code>;
+  --fart-secondary: <span class="preview-color" data-var="--fart-secondary" style="font-weight: bold; color: var(--fart-secondary);">#db7093</span>;
+  --fart-highlight: <span class="preview-color" data-var="--fart-highlight" style="font-weight: bold; color: var(--fart-highlight);">rgba(74, 140, 86, 0.3)</span>;
 
-  --fart-white: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-white);">#ddd</code><code>;
-  --fart-off-white: </code><code class="preview-color"style="font-weight: bold; color: var(--fart-off-white);">#aaa</code><code>;
+  --fart-white: <span class="preview-color" data-var="--fart-white" style="font-weight: bold; color: var(--fart-white);">#ddd</span>;
+  --fart-off-white: <span class="preview-color" data-var="--fart-off-white" style="font-weight: bold; color: var(--fart-off-white);">#aaa</span>;
 }</code></pre>
 
       <script>
@@ -156,15 +176,14 @@
 
           document.querySelectorAll(".preview-color").forEach(
             (el) => {
-              const variableName =
-                el.style.color.match(/--[-a-z]+/i)[0];
+              const variableName = el.getAttribute("data-var");
               if (!variableName) {
-                throw new Error("Could not find variable name");
+                return;
               }
 
               el.textContent = rootStyles.getPropertyValue(
                 variableName,
-              );
+              ).trim();
             },
           );
         });
@@ -331,9 +350,8 @@ body {
         animation on hover.
       </p>
       <span
-        class="fart-logo"
+        class="fart-logo fart-logo-example"
         href="#fart-logo"
-        style="font-size: 24pt; cursor: pointer"
       >🧪</span>
     </section>
 
@@ -349,12 +367,10 @@ body {
       </p>
 
       <h3>Example border tubes</h3>
-      <ul
-        style="display: flex; flex-wrap: wrap; gap: 3em; list-style: none; margin: 0; padding: 0"
-      >
+      <ul class="border-tubes-list">
         <li>
           <div class="border-tube-empty">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-empty</code> CSS
               class.
             </p>
@@ -363,7 +379,7 @@ body {
 
         <li>
           <div class="border-tube-empty glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-empty</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>
@@ -372,7 +388,7 @@ body {
 
         <li>
           <div class="border-tube-green">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-green</code> CSS
               class.
             </p>
@@ -381,7 +397,7 @@ body {
 
         <li>
           <div class="border-tube-green glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-green</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>
@@ -390,7 +406,7 @@ body {
 
         <li>
           <div class="border-tube-purple">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-purple</code> CSS
               class.
             </p>
@@ -399,7 +415,7 @@ body {
 
         <li>
           <div class="border-tube-purple glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-purple</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>
@@ -408,7 +424,7 @@ body {
 
         <li>
           <div class="border-tube-yellow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-yellow</code> CSS
               class.
             </p>
@@ -417,7 +433,7 @@ body {
 
         <li>
           <div class="border-tube-yellow glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-yellow</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>
@@ -426,7 +442,7 @@ body {
 
         <li>
           <div class="border-tube-turquoise">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-turquoise</code> CSS
               class.
             </p>
@@ -435,7 +451,7 @@ body {
 
         <li>
           <div class="border-tube-turquoise glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-turquoise</code>
               CSS class and the <code>.glow</code> CSS class.
             </p>
@@ -444,7 +460,7 @@ body {
 
         <li>
           <div class="border-tube-magenta">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-magenta</code> CSS
               class.
             </p>
@@ -453,7 +469,7 @@ body {
 
         <li>
           <div class="border-tube-magenta glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-magenta</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>
@@ -462,7 +478,7 @@ body {
 
         <li>
           <div class="border-tube-orange">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-orange</code> CSS
               class.
             </p>
@@ -471,7 +487,7 @@ body {
 
         <li>
           <div class="border-tube-orange glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-orange</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>
@@ -480,7 +496,7 @@ body {
 
         <li>
           <div class="border-tube-blue">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with <code>.border-tube-blue</code> CSS class.
             </p>
           </div>
@@ -488,7 +504,7 @@ body {
 
         <li>
           <div class="border-tube-blue glow">
-            <p style="margin: 1.5rem">
+            <p class="border-tube-content">
               Example border tube with the <code>.border-tube-blue</code> CSS
               class and the <code>.glow</code> CSS class.
             </p>

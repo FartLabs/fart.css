@@ -29,3 +29,18 @@
     transform: rotate(0deg);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes fart-shake {
+    0%, 100% {
+      scale: 1;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+  }
+}
