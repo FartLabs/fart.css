@@ -570,6 +570,9 @@
                 <li>
                   <a href="#fart-hr">Horizontal rule</a>
                 </li>
+                <li>
+                  <a href="#tables">Tables</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -920,6 +923,95 @@ body {
 
 &lt;!-- Or with class --&gt;
 &lt;hr class="fart-hr"&gt;</code></pre>
+          </div>
+
+          <h3 id="tables">Tables</h3>
+          <p>
+            Tables <code>&lt;table&gt;</code> are styled with a custom color
+            scheme, borders, and hover effects. Wrap tables in a
+            <code>.table-wrap</code> div for horizontal scrolling on mobile
+            devices.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="text-align: left">Type</th>
+                  <th style="text-align: left">Pros</th>
+                  <th style="text-align: left">Cons</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left">Email</td>
+                  <td style="text-align: left">
+                    Everyone knows email, easy to start
+                  </td>
+                  <td style="text-align: left">
+                    Conversations are <code>1:1</code> and can't be shared, hard
+                    to keep track of
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">Chat (Discord)</td>
+                  <td style="text-align: left">
+                    <code>1:many</code> conversations encourage community and
+                    faster responses
+                  </td>
+                  <td style="text-align: left">
+                    Requires a Discord account, old posts are washed away by new
+                    ones
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">Forum (Discourse)</td>
+                  <td style="text-align: left">
+                    Everything is public, Topics are easier to organize work
+                    around, Slower pace
+                  </td>
+                  <td style="text-align: left">
+                    Functional nature isn't the best for casual community
+                    discussions
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code class="language-html">&lt;div class="table-wrap"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th style="text-align: left"&gt;Type&lt;/th&gt;
+        &lt;th style="text-align: left"&gt;Pros&lt;/th&gt;
+        &lt;th style="text-align: left"&gt;Cons&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td style="text-align: left"&gt;Email&lt;/td&gt;
+        &lt;td style="text-align: left"&gt;Everyone knows email, easy to start&lt;/td&gt;
+        &lt;td style="text-align: left"&gt;Conversations are &lt;code&gt;1:1&lt;/code&gt; and can't be shared, hard to keep track of&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style="text-align: left"&gt;Chat (Discord)&lt;/td&gt;
+        &lt;td style="text-align: left"&gt;&lt;code&gt;1:many&lt;/code&gt; conversations encourage community and faster responses&lt;/td&gt;
+        &lt;td style="text-align: left"&gt;Requires a Discord account, old posts are washed away by new ones&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td style="text-align: left"&gt;Forum (Discourse)&lt;/td&gt;
+        &lt;td style="text-align: left"&gt;Everything is public, Topics are easier to organize work around, Slower pace&lt;/td&gt;
+        &lt;td style="text-align: left"&gt;Functional nature isn't the best for casual community discussions&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
           </div>
         </section>
 

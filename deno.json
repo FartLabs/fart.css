@@ -5,6 +5,8 @@
   "exports": {
     ".": "./components/mod.ts",
     "./button": "./components/button.tsx",
+    "./button-group": "./components/button-group.tsx",
+    "./button-link": "./components/button-link.tsx",
     "./header": "./components/header.tsx",
     "./horizontal-rule": "./components/horizontal-rule.tsx",
     "./link": "./components/link.tsx",

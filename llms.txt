@@ -172,6 +172,67 @@ Copy code
 <hr class="fart-hr">
 ```
 
+### Tables
+
+Tables `<table>` are styled with a custom color scheme, borders, and hover effects. Wrap tables in a `.table-wrap` div for horizontal scrolling on mobile devices.
+
+Type
+
+Pros
+
+Cons
+
+Email
+
+Everyone knows email, easy to start
+
+Conversations are `1:1` and can't be shared, hard to keep track of
+
+Chat (Discord)
+
+`1:many` conversations encourage community and faster responses
+
+Requires a Discord account, old posts are washed away by new ones
+
+Forum (Discourse)
+
+Everything is public, Topics are easier to organize work around, Slower pace
+
+Functional nature isn't the best for casual community discussions
+
+Copy code
+
+```html
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">Type</th>
+        <th style="text-align: left">Pros</th>
+        <th style="text-align: left">Cons</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">Email</td>
+        <td style="text-align: left">Everyone knows email, easy to start</td>
+        <td style="text-align: left">Conversations are <code>1:1</code> and can't be shared, hard to keep track of</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Chat (Discord)</td>
+        <td style="text-align: left"><code>1:many</code> conversations encourage community and faster responses</td>
+        <td style="text-align: left">Requires a Discord account, old posts are washed away by new ones</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">Forum (Discourse)</td>
+        <td style="text-align: left">Everything is public, Topics are easier to organize work around, Slower pace</td>
+        <td style="text-align: left">Functional nature isn't the best for casual community discussions</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
 ## Misc
 
 Fart.css provides miscellaneous styles in the [misc.css](misc.css) file.
