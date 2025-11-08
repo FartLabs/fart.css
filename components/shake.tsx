@@ -17,6 +17,7 @@ export function Shake(props: ShakeProps): string {
     <SPAN
       {...props}
       class={`fart-logo ${props.class ? ` ${props.class}` : ""}`}
+      class={`fart-logo${props.class ? ` ${props.class}` : ""}`}
     >
       {props.children}
     </SPAN>

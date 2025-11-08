@@ -24,7 +24,7 @@
     "check": "deno check **/*.ts",
     "publish:dry": "deno publish --dry-run --allow-dirty",
     "outdated": "deno outdated --update --latest",
-    "generate": "deno --allow-write --allow-read codegen/generate.ts"
+    "generate": "deno --allow-write --allow-read codegen/generate.ts && deno fmt"
   },
   "imports": {
     "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.10",

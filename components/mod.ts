@@ -1,4 +1,5 @@
 export * from "./button.tsx";
+export * from "./button-group.tsx";
 export * from "./header.tsx";
 export * from "./horizontal-rule.tsx";
 export * from "./link.tsx";

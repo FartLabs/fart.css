@@ -8,7 +8,7 @@ export interface HorizontalRuleProps
 }
 
 /**
- * HorizontalRule is a span element with a Fart.css horizontal rule style.
+ * HorizontalRule is an hr element with a Fart.css horizontal rule style.
  *
  * @see https://css.fart.tools#fart-hr
  */
@@ -16,7 +16,7 @@ export function HorizontalRule(props: HorizontalRuleProps): string {
   return (
     <HR
       {...props}
-      class={`fart-horizontal-rule${props.class ? ` ${props.class}` : ""}`}
+      class={`fart-hr${props.class ? ` ${props.class}` : ""}`}
     />
   );
 }

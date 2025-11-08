@@ -4,10 +4,9 @@ import { BUTTON } from "@fartlabs/htx/button";
 /**
  * ButtonProps are the properties of the Button component.
  */
-export type ButtonProps<T extends "a" | "button"> = T extends "a"
-  ? Parameters<typeof A>[0] & { as?: T }
-  : T extends "button" ? Parameters<typeof BUTTON>[0] & { as: T }
-  : never;
+export type ButtonProps<T extends "a" | "button" = "a"> = T extends "a"
+  ? Parameters<typeof A>[0] & { as?: T; disabled?: boolean }
+  : Parameters<typeof BUTTON>[0] & { as: T };
 
 /**
  * Button is a button element with a Fart.css style.
@@ -17,24 +16,25 @@ export type ButtonProps<T extends "a" | "button"> = T extends "a"
 export function Button<T extends "a" | "button" = "a">(
   props: ButtonProps<T>,
 ): string {
-  const modifiedProps: ButtonProps<T> = {
-    ...props,
-    class: `fart-button${props.class ? ` ${props.class}` : ""}`,
-  };
-
-  switch (props.as ?? "a") {
-    case "a": {
-      return <A {...modifiedProps} />;
-    }
-
-    case "button": {
-      return <BUTTON {...modifiedProps} />;
-    }
-
-    default: {
-      throw new Error("Invalid button type");
-    }
+  const type = props.as ?? "a";
+  const classes = `fart-button${props.class ? ` ${props.class}` : ""}`;
+  if (type === "a") {
+    const anchorProps = props as Parameters<typeof A>[0] & {
+      disabled?: boolean;
+    };
+    return (
+      <A {...anchorProps} class={classes}>
+        {anchorProps.children}
+      </A>
+    );
   }
+
+  const buttonProps = props as Parameters<typeof BUTTON>[0] & { as: "button" };
+  return (
+    <BUTTON {...buttonProps} class={classes}>
+      {buttonProps.children}
+    </BUTTON>
+  );
 }
 
 export { A, BUTTON };

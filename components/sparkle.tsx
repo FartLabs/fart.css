@@ -16,7 +16,7 @@ export function Sparkle(props: SparkleProps): string {
   return (
     <SPAN
       {...props}
-      class={`fart-sparkle ${props.class ? ` ${props.class}` : ""}`}
+      class={`fart-sparkle${props.class ? ` ${props.class}` : ""}`}
     >
       {props.children}
     </SPAN>
