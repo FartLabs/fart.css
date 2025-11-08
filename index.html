@@ -334,6 +334,41 @@
       .main-content {
         min-width: 0;
       }
+
+      /* Code block container with copy button */
+      .code-block-container {
+        position: relative;
+        margin: var(--space-base) 0;
+      }
+
+      .code-block-container pre {
+        margin: 0;
+        padding-top: calc(var(--space-lg) + 1.5rem);
+      }
+
+      .copy-code-button {
+        position: absolute;
+        top: var(--space-sm);
+        right: var(--space-sm);
+        z-index: 2;
+        font-size: var(--font-size-xs);
+        padding: 0.25rem var(--space-xs);
+      }
+
+      .copy-code-button.copied {
+        background-color: var(--fart-primary);
+        color: var(--fart-dark-primary);
+        border-color: var(--fart-primary);
+      }
+
+      @media (max-width: 640px) {
+        .copy-code-button {
+          top: var(--space-xs);
+          right: var(--space-xs);
+          font-size: 0.7rem;
+          padding: 0.2rem 0.4rem;
+        }
+      }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -500,7 +535,12 @@
             To get started with Fart.css, include the following line in the
             <code>&lt;head&gt;</code> of your HTML file:
           </p>
-          <pre><code>&lt;link rel="stylesheet" type="text/css" href="https://css.fart.tools"&gt;</code></pre>
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre><code>&lt;link rel="stylesheet" type="text/css" href="https://css.fart.tools"&gt;</code></pre>
+          </div>
           <p>
             From there, you can use the classes and styles provided by the CSS
             library.
@@ -514,7 +554,11 @@
             <code>var(--css-variable)</code> for colors:
           </p>
           <p>Colors are defined in the <a href="root.css">root.css</a> file.</p>
-          <pre>
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
 <code>:root {
   --fart-primary: <span class="preview-color" data-var="--fart-primary" style="font-weight: bold; color: var(--fart-primary);">#7dd87f</span>;
   --fart-dark-primary: <span class="preview-color" data-var="--fart-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-primary);">#0f2a0f</span>;
@@ -527,6 +571,7 @@
   --fart-white: <span class="preview-color" data-var="--fart-white" style="font-weight: bold; color: var(--fart-white);">#ddd</span>;
   --fart-off-white: <span class="preview-color" data-var="--fart-off-white" style="font-weight: bold; color: var(--fart-off-white);">#aaa</span>;
 }</code></pre>
+          </div>
 
           <script>
             addEventListener("load", () => {
@@ -575,7 +620,11 @@
             in the <a href="semantics.css">semantics.css</a> file.
           </p>
           <p>Body and HTML elements are styled with:</p>
-          <pre>
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
 <code>html,
 body {
   background-color: var(--fart-dark-primary);
@@ -583,6 +632,7 @@ body {
   font-family: sans-serif;
   margin: 0;
 }</code></pre>
+          </div>
 
           <p>
             Check out the available styles in the
@@ -602,6 +652,19 @@ body {
           <h5>Example h5</h5>
           <h6>Example h6</h6>
 
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;h1&gt;Example h1&lt;/h1&gt;
+&lt;h2&gt;Example h2&lt;/h2&gt;
+&lt;h3&gt;Example h3&lt;/h3&gt;
+&lt;h4&gt;Example h4&lt;/h4&gt;
+&lt;h5&gt;Example h5&lt;/h5&gt;
+&lt;h6&gt;Example h6&lt;/h6&gt;</code></pre>
+          </div>
+
           <h3 id="links">Links</h3>
           <p>
             Links <code>&lt;a&gt;</code>, <code>.fart-link</code>, and
@@ -618,6 +681,16 @@ body {
               >Example .fart-link-visible-on-hover</a>
             </li>
           </ul>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;a class="fart-link" href="#"&gt;Example .fart-link&lt;/a&gt;
+
+&lt;a class="fart-link-visible-on-hover" href="#"&gt;Example .fart-link-visible-on-hover&lt;/a&gt;</code></pre>
+          </div>
 
           <h3 id="lists">Lists</h3>
           <p>
@@ -637,12 +710,37 @@ body {
             </li>
           </ul>
 
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;ul&gt;
+  &lt;li&gt;Example list item 1&lt;/li&gt;
+  &lt;li&gt;Example list item 2&lt;/li&gt;
+  &lt;li&gt;
+    Example nested list
+    &lt;ul&gt;
+      &lt;li&gt;Example nested list item 1&lt;/li&gt;
+      &lt;li&gt;Example nested list item 2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+
           <h3 id="blockquotes">Blockquotes</h3>
           <p>
             Blockquotes <code>&lt;blockquote&gt;</code> are styled with a custom
             color and padding.
           </p>
           <blockquote>Example blockquote</blockquote>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre><code>&lt;blockquote&gt;Example blockquote&lt;/blockquote&gt;</code></pre>
+          </div>
 
           <h3 id="fart-hr">Horizontal rule</h3>
           <p>
@@ -652,6 +750,17 @@ body {
           </p>
 
           <hr />
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;hr&gt;
+
+&lt;!-- Or with class --&gt;
+&lt;hr class="fart-hr"&gt;</code></pre>
+          </div>
         </section>
 
         <section class="fart-section">
@@ -684,12 +793,17 @@ body {
             tabindex="-1"
             onclick="return false;"
           >Disabled link</a>
-          <pre>
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
 <code>&lt;!-- Using :disabled for button elements --&gt;
 &lt;button class="fart-button" disabled&gt;Disabled button&lt;/button&gt;
 
 &lt;!-- Using class for anchor elements --&gt;
 &lt;a class="fart-button fart-button-disabled" href="#" aria-disabled="true" tabindex="-1" onclick="return false;"&gt;Disabled link&lt;/a&gt;</code></pre>
+          </div>
 
           <h4 id="button-groups">Button Groups</h4>
           <p>
@@ -703,18 +817,33 @@ body {
             <a class="fart-button" href="#button-groups">FartLabs</a>
             <a class="fart-button" href="#button-groups">Apple</a>
           </div>
-          <pre>
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
 <code>&lt;div class="fart-button-group"&gt;
   &lt;a class="fart-button" href="#"&gt;Google&lt;/a&gt;
   &lt;a class="fart-button" href="#"&gt;FartLabs&lt;/a&gt;
   &lt;a class="fart-button" href="#"&gt;Apple&lt;/a&gt;
 &lt;/div&gt;</code></pre>
+          </div>
 
           <h3 id="fart-section">Sections</h3>
           <p>
             Sections <code>.fart-section</code> are styled with a custom color
             and padding.
           </p>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;section class="fart-section"&gt;
+  &lt;!-- Your content here --&gt;
+&lt;/section&gt;</code></pre>
+          </div>
 
           <h3 id="fart-header">Headers</h3>
           <p>
@@ -723,12 +852,26 @@ body {
           </p>
           <span class="fart-header">Example header</span>
 
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre><code>&lt;span class="fart-header"&gt;Example header&lt;/span&gt;</code></pre>
+          </div>
+
           <h3 id="fart-text-gradient">Text gradient</h3>
           <p>
             Text gradients <code>.fart-text-gradient</code> are styled with a
             custom gradient.
           </p>
           <span class="fart-text-gradient">Example<br>text gradient</span>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre><code>&lt;span class="fart-text-gradient"&gt;Example text gradient&lt;/span&gt;</code></pre>
+          </div>
 
           <h3 id="fart-text-special">Special text</h3>
           <p>
@@ -740,12 +883,29 @@ body {
           >The <span class="fart-text-special">special text</span> in a
             gradient.</span>
 
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;span class="fart-text-gradient"&gt;
+  The &lt;span class="fart-text-special"&gt;special text&lt;/span&gt; in a gradient.
+&lt;/span&gt;</code></pre>
+          </div>
+
           <h3 id="fart-sparkle">Sparkles</h3>
           <p>
             Sparkles <code>.fart-sparkle</code> are styled with sparkle emojis
             on either side of the text content.
           </p>
           <span class="fart-sparkle">Example sparkle</span>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre><code>&lt;span class="fart-sparkle"&gt;Example sparkle&lt;/span&gt;</code></pre>
+          </div>
 
           <h3 id="fart-logo">Hoverable logos</h3>
           <p>
@@ -756,6 +916,13 @@ body {
             class="fart-logo fart-logo-example"
             href="#fart-logo"
           >🧪</span>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre><code>&lt;a class="fart-logo" href="#"&gt;🧪&lt;/a&gt;</code></pre>
+          </div>
         </section>
 
         <section class="fart-section">
@@ -917,6 +1084,51 @@ body {
               </div>
             </li>
           </ul>
+
+          <div class="code-block-container">
+            <button class="fart-button copy-code-button" type="button">
+              Copy code
+            </button>
+            <pre>
+<code>&lt;!-- Basic border tube --&gt;
+&lt;div class="border-tube-empty"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Border tube with glow effect --&gt;
+&lt;div class="border-tube-empty glow"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Colored border tubes --&gt;
+&lt;div class="border-tube-green"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="border-tube-purple"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="border-tube-yellow"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="border-tube-turquoise"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="border-tube-magenta"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="border-tube-orange"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="border-tube-blue"&gt;
+  &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
         </section>
 
         <section class="fart-section">
@@ -1006,6 +1218,70 @@ body {
           lastHash = document.location.hash;
         });
       }
+
+      // Copy code functionality
+      function copyCodeToClipboard(button, codeElement) {
+        // Get text content from code element, handling nested spans
+        const text = codeElement.innerText || codeElement.textContent;
+
+        // Try modern Clipboard API first
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => {
+            showCopyFeedback(button);
+          }).catch(() => {
+            // Fallback to execCommand
+            fallbackCopy(text, button);
+          });
+        } else {
+          // Fallback for older browsers
+          fallbackCopy(text, button);
+        }
+      }
+
+      function fallbackCopy(text, button) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        try {
+          document.execCommand("copy");
+          showCopyFeedback(button);
+        } catch (err) {
+          console.error("Failed to copy:", err);
+        }
+
+        document.body.removeChild(textarea);
+      }
+
+      function showCopyFeedback(button) {
+        const originalText = button.textContent;
+        button.textContent = "Copied!";
+        button.classList.add("copied");
+
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove("copied");
+        }, 2000);
+      }
+
+      // Initialize copy buttons on page load
+      addEventListener("load", () => {
+        document.querySelectorAll(".copy-code-button").forEach(
+          (button) => {
+            button.addEventListener("click", (e) => {
+              e.preventDefault();
+              const container = button.closest(".code-block-container");
+              const codeElement = container.querySelector("code");
+              if (codeElement) {
+                copyCodeToClipboard(button, codeElement);
+              }
+            });
+          },
+        );
+      });
     </script>
   </body>
 </html>
