@@ -39,6 +39,300 @@
         justify-content: center;
         align-items: center;
       }
+
+      /* Header nav styles */
+      .header-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: var(--container-content);
+        margin: var(--space-base) auto var(--space-2xl) auto;
+        padding: var(--space-base);
+        gap: var(--space-base);
+        flex-wrap: wrap;
+      }
+
+      .header-nav h1,
+      .header-nav .fart-header {
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .header-nav .fart-button {
+        display: inline-flex;
+        align-items: center;
+        vertical-align: middle;
+      }
+
+      @media (max-width: 640px) {
+        .header-nav {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--space-sm);
+        }
+      }
+
+      /* Sidebar nav - explicitly exclude from global nav styles */
+      .sidebar-nav {
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Sidebar styles */
+      #sidenav-container {
+        display: grid;
+        grid: [stack] 1fr / min-content [stack] 1fr;
+        position: relative;
+      }
+
+      #sidenav-open {
+        --duration: 0.3s;
+        grid-area: stack;
+        display: grid;
+        grid-template-columns: [nav] 2fr [escape] 1fr;
+        position: relative;
+        z-index: var(--z-modal);
+      }
+
+      #sidenav-nav,
+      .sidebar-nav {
+        grid-area: nav;
+      }
+
+      #sidenav-escape {
+        grid-area: escape;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #sidenav-open {
+          --duration: 1ms;
+        }
+      }
+
+      /* Desktop: sidebar always visible */
+      @media (min-width: 768px) {
+        #sidenav-container {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 250px;
+          height: 100vh;
+          z-index: var(--z-sticky);
+        }
+
+        #sidenav-open {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          padding: 2rem;
+          box-sizing: border-box;
+          background-color: var(--fart-dark-primary);
+          border-right: 1px solid rgba(125, 216, 127, 0.1);
+          scrollbar-width: thin;
+          scrollbar-color: var(--fart-lighter-dark-primary) var(--fart-dark-primary);
+        }
+
+        #sidenav-open::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        #sidenav-open::-webkit-scrollbar-track {
+          background: var(--fart-dark-primary);
+        }
+
+        #sidenav-open::-webkit-scrollbar-thumb {
+          background: var(--fart-lighter-dark-primary);
+          border-radius: var(--radius-sm);
+          border: 2px solid var(--fart-dark-primary);
+        }
+
+        #sidenav-open::-webkit-scrollbar-thumb:hover {
+          background: var(--fart-primary);
+        }
+
+        #sidenav-close,
+        #sidenav-button {
+          display: none !important;
+        }
+
+        .page-content {
+          margin-left: 250px;
+          min-width: 0;
+        }
+      }
+
+      /* Mobile: slide-out sidebar */
+      @media (max-width: 767px) {
+        #sidenav-button {
+          display: inline-flex;
+        }
+
+        /* Prevent body scroll when sidebar is open */
+        body:has(#sidenav-open:target) {
+          overflow: hidden;
+        }
+
+        #sidenav-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: var(--z-modal);
+        }
+
+        #sidenav-container:not(:has(#sidenav-open:target)) {
+          pointer-events: none;
+        }
+
+        #sidenav-container > * {
+          grid-area: stack;
+        }
+
+        #sidenav-open {
+          visibility: hidden;
+          transform: translateX(-110vw);
+          will-change: transform;
+          transition:
+            transform var(--duration) var(--ease-out),
+            visibility 0s linear var(--duration);
+          pointer-events: none;
+        }
+
+        #sidenav-open:target {
+          visibility: visible;
+          transform: translateX(0);
+          transition: transform var(--duration) var(--ease-out);
+          pointer-events: auto;
+        }
+
+        /* Fallback for browsers without :has() support */
+        @supports not selector(:has(*)) {
+          #sidenav-container {
+            pointer-events: none;
+          }
+          #sidenav-open:target {
+            pointer-events: auto;
+          }
+          #sidenav-open:target ~ * {
+            pointer-events: auto;
+          }
+        }
+
+        .sidebar-nav {
+          background-color: var(--fart-dark-primary);
+          padding: 1.5rem;
+          box-shadow: var(--shadow-xl);
+          overflow-y: auto;
+          height: 100%;
+          max-height: 100vh;
+        }
+
+        #sidenav-escape {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #sidenav-close {
+          display: block;
+        }
+
+        .page-content {
+          margin-left: 0;
+        }
+      }
+
+      /* Sidebar button styles */
+      #sidenav-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--fart-white);
+        text-decoration: none;
+        position: relative;
+        z-index: calc(var(--z-modal) + 1);
+      }
+
+      #sidenav-button:is(:hover, :focus) {
+        color: var(--fart-primary);
+      }
+
+      #sidenav-button svg {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      #sidenav-close {
+        display: none;
+        padding: 1rem;
+        text-align: right;
+        color: var(--fart-white);
+        text-decoration: none;
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      #sidenav-close:is(:hover, :focus) {
+        color: var(--fart-primary);
+      }
+
+      .sidebar-nav h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: var(--font-size-lg);
+        padding-bottom: 0;
+        border-bottom: none;
+        position: relative;
+        display: inline-block;
+      }
+
+      .sidebar-nav h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(125, 216, 127, 0.2);
+      }
+
+      .sidenav-toc {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidenav-toc ul {
+        list-style: none;
+        padding-left: 1rem;
+        margin: 0.5rem 0;
+      }
+
+      .sidenav-toc a {
+        display: block;
+        padding: 0.5rem 0;
+        color: var(--fart-white);
+        text-decoration: none;
+      }
+
+      .sidenav-toc a:is(:hover, :focus) {
+        color: var(--fart-primary);
+      }
+
+      .main-content {
+        min-width: 0;
+      }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -57,14 +351,114 @@
     </script>
   </head>
   <body>
-    <section class="fart-section">
-      <nav>
-        <h1 id="top" class="fart-header">Fart.css</h1>
+    <div id="sidenav-container">
+      <aside id="sidenav-open">
+        <nav id="sidenav-nav" class="sidebar-nav">
+          <h2 id="toc">On this page</h2>
+          <ul class="sidenav-toc">
+            <li>
+              <a href="#getting-started">Getting started</a>
+            </li>
+            <li>
+              <a href="#variables">Variables</a>
+            </li>
+            <li>
+              <a href="#fonts">Fonts</a>
+            </li>
+            <li>
+              <a href="#keyframes">Keyframes</a>
+            </li>
+            <li>
+              <a href="#semantics">Semantics</a>
+              <ul>
+                <li>
+                  <a href="#headings">Headings</a>
+                </li>
+                <li>
+                  <a href="#links">Links</a>
+                </li>
+                <li>
+                  <a href="#lists">Lists</a>
+                </li>
+                <li>
+                  <a href="#blockquotes">Blockquotes</a>
+                </li>
+                <li>
+                  <a href="#fart-hr">Horizontal rule</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#misc">Misc</a>
+              <ul>
+                <li>
+                  <a href="#buttons">Buttons</a>
+                </li>
+                <li>
+                  <a href="#fart-section">Sections</a>
+                </li>
+                <li>
+                  <a href="#fart-header">Headers</a>
+                </li>
+                <li>
+                  <a href="#fart-text-gradient">Text gradient</a>
+                </li>
+                <li>
+                  <a href="#fart-text-special">Special text</a>
+                </li>
+                <li>
+                  <a href="#fart-sparkle">Sparkles</a>
+                </li>
+                <li>
+                  <a href="#fart-logo">Hoverable logos</a>
+                </li>
+                <li>
+                  <a href="#border-tubes">Border tubes</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
         <a
-          class="fart-button"
-          href="https://github.com/FartLabs/fart.css"
-          target="_blank"
-        >&bigstar;Source<small>↗</small></a>
+          href="#"
+          id="sidenav-close"
+          title="Close Menu"
+          aria-label="Close Menu"
+          onclick="history.go(-1); return false;"
+        >&times;</a>
+        <a
+          href="#"
+          id="sidenav-escape"
+          title="Close Menu"
+          aria-label="Close Menu"
+          onclick="history.go(-1); return false;"
+        ></a>
+      </aside>
+    </div>
+
+    <div class="page-content">
+    <section class="fart-section">
+      <nav class="header-nav">
+        <h1 id="top" class="fart-header">Fart.css</h1>
+        <div style="display: flex; gap: 1rem; align-items: center">
+          <a
+            href="#sidenav-open"
+            id="sidenav-button"
+            title="Open Menu"
+            aria-label="Open Menu"
+          >
+            <svg viewBox="0 0 24 24">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </a>
+          <a
+            class="fart-button"
+            href="https://github.com/FartLabs/fart.css"
+            target="_blank"
+          >&bigstar;Source<small>↗</small></a>
+        </div>
       </nav>
 
       <p>
@@ -82,102 +476,36 @@
           class="fart-button"
           href="https://jsr.io/@fartlabs/css/doc"
           target="_blank"
-        >View Components</a>
+        >View Components<small>↗</small></a>
       </div>
 
       <img src="bookcover.png" alt="Fart.css book cover" />
     </section>
 
-    <section class="fart-section">
-      <h2 id="toc">On this page</h2>
-      <ul>
-        <li>
-          <a href="#getting-started">Getting started</a>
-        </li>
-        <li>
-          <a href="#variables">Variables</a>
-        </li>
-        <li>
-          <a href="#fonts">Fonts</a>
-        </li>
-        <li>
-          <a href="#keyframes">Keyframes</a>
-        </li>
-        <li>
-          <a href="#semantics">Semantics</a>
-          <ul>
-            <li>
-              <a href="#headings">Headings</a>
-            </li>
-            <li>
-              <a href="#links">Links</a>
-            </li>
-            <li>
-              <a href="#lists">Lists</a>
-            </li>
-            <li>
-              <a href="#blockquotes">Blockquotes</a>
-            </li>
-            <li>
-              <a href="#fart-hr">Horizontal rule</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#misc">Misc</a>
-          <ul>
-            <li>
-              <a href="#buttons">Buttons</a>
-            </li>
-            <li>
-              <a href="#fart-section">Sections</a>
-            </li>
-            <li>
-              <a href="#fart-header">Headers</a>
-            </li>
-            <li>
-              <a href="#fart-text-gradient">Text gradient</a>
-            </li>
-            <li>
-              <a href="#fart-text-special">Special text</a>
-            </li>
-            <li>
-              <a href="#fart-sparkle">Sparkles</a>
-            </li>
-            <li>
-              <a href="#fart-logo">Hoverable logos</a>
-            </li>
-            <li>
-              <a href="#border-tubes">Border tubes</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+    <main class="main-content">
+        <section class="fart-section">
+          <h2 id="getting-started">
+            Getting started
+          </h2>
+          <p>
+            To get started with Fart.css, include the following line in the
+            <code>&lt;head&gt;</code> of your HTML file:
+          </p>
+          <pre><code>&lt;link rel="stylesheet" type="text/css" href="https://css.fart.tools"&gt;</code></pre>
+          <p>
+            From there, you can use the classes and styles provided by the CSS
+            library.
+          </p>
+        </section>
 
-    <section class="fart-section">
-      <h2 id="getting-started">
-        Getting started
-      </h2>
-      <p>
-        To get started with Fart.css, include the following line in the
-        <code>&lt;head&gt;</code> of your HTML file:
-      </p>
-      <pre><code>&lt;link rel="stylesheet" type="text/css" href="https://css.fart.tools"&gt;</code></pre>
-      <p>
-        From there, you can use the classes and styles provided by the CSS
-        library.
-      </p>
-    </section>
-
-    <section class="fart-section">
-      <h2 id="variables">Variables</h2>
-      <p>
-        Fart.css provides a set of CSS variables
-        <code>var(--css-variable)</code> for colors:
-      </p>
-      <p>Colors are defined in the <a href="root.css">root.css</a> file.</p>
-      <pre>
+        <section class="fart-section">
+          <h2 id="variables">Variables</h2>
+          <p>
+            Fart.css provides a set of CSS variables
+            <code>var(--css-variable)</code> for colors:
+          </p>
+          <p>Colors are defined in the <a href="root.css">root.css</a> file.</p>
+          <pre>
 <code>:root {
   --fart-primary: <span class="preview-color" data-var="--fart-primary" style="font-weight: bold; color: var(--fart-primary);">#7dd87f</span>;
   --fart-dark-primary: <span class="preview-color" data-var="--fart-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-primary);">#0f2a0f</span>;
@@ -191,52 +519,54 @@
   --fart-off-white: <span class="preview-color" data-var="--fart-off-white" style="font-weight: bold; color: var(--fart-off-white);">#aaa</span>;
 }</code></pre>
 
-      <script>
-        addEventListener("load", () => {
-          const root = document.querySelector(":root");
-          const rootStyles = getComputedStyle(root);
+          <script>
+            addEventListener("load", () => {
+              const root = document.querySelector(":root");
+              const rootStyles = getComputedStyle(root);
 
-          document.querySelectorAll(".preview-color").forEach(
-            (el) => {
-              const variableName = el.getAttribute("data-var");
-              if (!variableName) {
-                return;
-              }
+              document.querySelectorAll(".preview-color").forEach(
+                (el) => {
+                  const variableName = el.getAttribute(
+                    "data-var",
+                  );
+                  if (!variableName) {
+                    return;
+                  }
 
-              el.textContent = rootStyles.getPropertyValue(
-                variableName,
-              ).trim();
-            },
-          );
-        });
-      </script>
-    </section>
+                  el.textContent = rootStyles.getPropertyValue(
+                    variableName,
+                  ).trim();
+                },
+              );
+            });
+          </script>
+        </section>
 
-    <section class="fart-section">
-      <h2 id="fonts">Fonts</h2>
-      <p>
-        The <a href="fonts.css">fonts.css</a> file imports
-        <a href="https://fonts.google.com/specimen/Overpass">Overpass</a> from
-        Google Fonts.
-      </p>
-    </section>
+        <section class="fart-section">
+          <h2 id="fonts">Fonts</h2>
+          <p>
+            The <a href="fonts.css">fonts.css</a> file imports
+            <a href="https://fonts.google.com/specimen/Overpass">Overpass</a>
+            from Google Fonts.
+          </p>
+        </section>
 
-    <section class="fart-section">
-      <h2 id="keyframes">Keyframes</h2>
-      <p>
-        Fart.css provides a set of keyframes for animations in the
-        <a href="keyframes.css">keyframes.css</a> file.
-      </p>
-    </section>
+        <section class="fart-section">
+          <h2 id="keyframes">Keyframes</h2>
+          <p>
+            Fart.css provides a set of keyframes for animations in the
+            <a href="keyframes.css">keyframes.css</a> file.
+          </p>
+        </section>
 
-    <section class="fart-section">
-      <h2 id="semantics">Semantics</h2>
-      <p>
-        Fart.css provides implicit styling for a set of common HTML elements in
-        the <a href="semantics.css">semantics.css</a> file.
-      </p>
-      <p>Body and HTML elements are styled with:</p>
-      <pre>
+        <section class="fart-section">
+          <h2 id="semantics">Semantics</h2>
+          <p>
+            Fart.css provides implicit styling for a set of common HTML elements
+            in the <a href="semantics.css">semantics.css</a> file.
+          </p>
+          <p>Body and HTML elements are styled with:</p>
+          <pre>
 <code>html,
 body {
   background-color: var(--fart-dark-primary);
@@ -245,318 +575,324 @@ body {
   margin: 0;
 }</code></pre>
 
-      <p>
-        Check out the available styles in the
-        <a href="semantics.css">semantics.css</a> file.
-      </p>
+          <p>
+            Check out the available styles in the
+            <a href="semantics.css">semantics.css</a> file.
+          </p>
 
-      <h3 id="headings">Headings</h3>
-      <p>
-        Headings <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are
-        styled with a custom font and size.
-      </p>
+          <h3 id="headings">Headings</h3>
+          <p>
+            Headings <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are
+            styled with a custom font and size.
+          </p>
 
-      <h1>Example h1</h1>
-      <h2>Example h2</h2>
-      <h3>Example h3</h3>
-      <h4>Example h4</h4>
-      <h5>Example h5</h5>
-      <h6>Example h6</h6>
+          <h1>Example h1</h1>
+          <h2>Example h2</h2>
+          <h3>Example h3</h3>
+          <h4>Example h4</h4>
+          <h5>Example h5</h5>
+          <h6>Example h6</h6>
 
-      <h3 id="links">Links</h3>
-      <p>
-        Links <code>&lt;a&gt;</code>, <code>.fart-link</code>, and
-        <code>.fart-link-visible-on-hover</code> are styled with a custom color
-        and hover effect. Use <code>.fart-link-visible-on-hover</code> to style
-        links whose underline is only visible on hover.
-      </p>
-      <ul>
-        <li>
-          <a class="fart-link" href="#links">Example .fart-link</a>
-        </li>
-        <li>
-          <a class="fart-link-visible-on-hover" href="#links"
-          >Example .fart-link-visible-on-hover</a>
-        </li>
-      </ul>
-
-      <h3 id="lists">Lists</h3>
-      <p>
-        Lists <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> are styled
-        with a custom color and padding.
-      </p>
-
-      <ul>
-        <li>Example list item 1</li>
-        <li>Example list item 2</li>
-        <li>
-          Example nested list
+          <h3 id="links">Links</h3>
+          <p>
+            Links <code>&lt;a&gt;</code>, <code>.fart-link</code>, and
+            <code>.fart-link-visible-on-hover</code> are styled with a custom
+            color and hover effect. Use <code>.fart-link-visible-on-hover</code>
+            to style links whose underline is only visible on hover.
+          </p>
           <ul>
-            <li>Example nested list item 1</li>
-            <li>Example nested list item 2</li>
+            <li>
+              <a class="fart-link" href="#links">Example .fart-link</a>
+            </li>
+            <li>
+              <a class="fart-link-visible-on-hover" href="#links"
+              >Example .fart-link-visible-on-hover</a>
+            </li>
           </ul>
-        </li>
-      </ul>
 
-      <h3 id="blockquotes">Blockquotes</h3>
-      <p>
-        Blockquotes <code>&lt;blockquote&gt;</code> are styled with a custom
-        color and padding.
-      </p>
-      <blockquote>Example blockquote</blockquote>
+          <h3 id="lists">Lists</h3>
+          <p>
+            Lists <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> are styled
+            with a custom color and padding.
+          </p>
 
-      <h3 id="fart-hr">Horizontal rule</h3>
-      <p>
-        Use <code>&lt;hr&gt;</code> or <code>.fart-hr</code> to create a
-        horizontal rule. The rule is styled with <code
-        >var(--fart-primary)</code>.
-      </p>
+          <ul>
+            <li>Example list item 1</li>
+            <li>Example list item 2</li>
+            <li>
+              Example nested list
+              <ul>
+                <li>Example nested list item 1</li>
+                <li>Example nested list item 2</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3 id="blockquotes">Blockquotes</h3>
+          <p>
+            Blockquotes <code>&lt;blockquote&gt;</code> are styled with a custom
+            color and padding.
+          </p>
+          <blockquote>Example blockquote</blockquote>
+
+          <h3 id="fart-hr">Horizontal rule</h3>
+          <p>
+            Use <code>&lt;hr&gt;</code> or <code>.fart-hr</code> to create a
+            horizontal rule. The rule is styled with <code
+            >var(--fart-primary)</code>.
+          </p>
+
+          <hr />
+        </section>
+
+        <section class="fart-section">
+          <h2 id="misc">Misc</h2>
+          <p>
+            Fart.css provides miscellaneous styles in the
+            <a href="misc.css">misc.css</a> file.
+          </p>
+
+          <h3 id="buttons">Buttons</h3>
+          <p>
+            Buttons <code>.fart-button</code> have a rounded button style with a
+            custom color and hover effect.
+          </p>
+          <a class="fart-button" href="#buttons">Example button</a>
+
+          <h3 id="fart-section">Sections</h3>
+          <p>
+            Sections <code>.fart-section</code> are styled with a custom color
+            and padding.
+          </p>
+
+          <h3 id="fart-header">Headers</h3>
+          <p>
+            Headers <code>.fart-header</code> are styled with a custom font and
+            size.
+          </p>
+          <span class="fart-header">Example header</span>
+
+          <h3 id="fart-text-gradient">Text gradient</h3>
+          <p>
+            Text gradients <code>.fart-text-gradient</code> are styled with a
+            custom gradient.
+          </p>
+          <span class="fart-text-gradient">Example<br>text gradient</span>
+
+          <h3 id="fart-text-special">Special text</h3>
+          <p>
+            Special text <code>.fart-text-special</code> are styled with a
+            custom gradient.
+          </p>
+
+          <span class="fart-text-gradient"
+          >The <span class="fart-text-special">special text</span> in a
+            gradient.</span>
+
+          <h3 id="fart-sparkle">Sparkles</h3>
+          <p>
+            Sparkles <code>.fart-sparkle</code> are styled with sparkle emojis
+            on either side of the text content.
+          </p>
+          <span class="fart-sparkle">Example sparkle</span>
+
+          <h3 id="fart-logo">Hoverable logos</h3>
+          <p>
+            Hoverable logos <code>.fart-logo</code> are styled with a custom
+            animation on hover.
+          </p>
+          <span
+            class="fart-logo fart-logo-example"
+            href="#fart-logo"
+          >🧪</span>
+        </section>
+
+        <section class="fart-section">
+          <h2 id="border-tubes">Border tubes</h2>
+          <p>
+            Border tubes <code>.border-tube-empty</code>, <code
+            >.border-tube-green</code>,
+            <code>.border-tube-purple</code>, <code>.border-tube-yellow</code>,
+            <code>.border-tube-turquoise</code>, <code
+            >.border-tube-magenta</code>,
+            <code>.border-tube-orange</code>, and <code>.border-tube-blue</code>
+            are styled with an animated border image.
+          </p>
+
+          <h3>Example border tubes</h3>
+          <ul class="border-tubes-list">
+            <li>
+              <div class="border-tube-empty">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-empty</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-empty glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-empty</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-green">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-green</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-green glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-green</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-purple">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-purple</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-purple glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-purple</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-yellow">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-yellow</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-yellow glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-yellow</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-turquoise">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-turquoise</code>
+                  CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-turquoise glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code
+                  >.border-tube-turquoise</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-magenta">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-magenta</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-magenta glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-magenta</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-orange">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-orange</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-orange glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-orange</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-blue">
+                <p class="border-tube-content">
+                  Example border tube with <code>.border-tube-blue</code> CSS
+                  class.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="border-tube-blue glow">
+                <p class="border-tube-content">
+                  Example border tube with the <code>.border-tube-blue</code>
+                  CSS class and the <code>.glow</code> CSS class.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="fart-section">
+          <h2 id="bottom">You made it to the bottom!</h2>
+          <p>
+            Thanks for checking out Fart.css! If you have any questions or
+            feedback,
+            <a
+              class="fart-button"
+              href="https://go.fart.tools/chat"
+              target="_blank"
+            >Chat<small>↗</small></a>
+            with the community on Discord and check out our
+            <a
+              class="fart-button"
+              href="https://github.com/FartLabs/fart.css"
+              target="_blank"
+            >&bigstar;Source<small>↗</small></a>
+            on GitHub! <a class="fart-button" href="#top">Top<small
+              >↑</small></a>
+          </p>
+        </section>
+      </main>
 
       <hr />
-    </section>
 
-    <section class="fart-section">
-      <h2 id="misc">Misc</h2>
-      <p>
-        Fart.css provides miscellaneous styles in the
-        <a href="misc.css">misc.css</a> file.
-      </p>
-
-      <h3 id="buttons">Buttons</h3>
-      <p>
-        Buttons <code>.fart-button</code> have a rounded button style with a
-        custom color and hover effect.
-      </p>
-      <a class="fart-button" href="#buttons">Example button</a>
-
-      <h3 id="fart-section">Sections</h3>
-      <p>
-        Sections <code>.fart-section</code> are styled with a custom color and
-        padding.
-      </p>
-
-      <h3 id="fart-header">Headers</h3>
-      <p>
-        Headers <code>.fart-header</code> are styled with a custom font and
-        size.
-      </p>
-      <span class="fart-header">Example header</span>
-
-      <h3 id="fart-text-gradient">Text gradient</h3>
-      <p>
-        Text gradients <code>.fart-text-gradient</code> are styled with a custom
-        gradient.
-      </p>
-      <span class="fart-text-gradient">Example<br>text gradient</span>
-
-      <h3 id="fart-text-special">Special text</h3>
-      <p>
-        Special text <code>.fart-text-special</code> are styled with a custom
-        gradient.
-      </p>
-
-      <span class="fart-text-gradient"
-      >The <span class="fart-text-special">special text</span> in a
-        gradient.</span>
-
-      <h3 id="fart-sparkle">Sparkles</h3>
-      <p>
-        Sparkles <code>.fart-sparkle</code> are styled with sparkle emojis on
-        either side of the text content.
-      </p>
-      <span class="fart-sparkle">Example sparkle</span>
-
-      <h3 id="fart-logo">Hoverable logos</h3>
-      <p>
-        Hoverable logos <code>.fart-logo</code> are styled with a custom
-        animation on hover.
-      </p>
-      <span
-        class="fart-logo fart-logo-example"
-        href="#fart-logo"
-      >🧪</span>
-    </section>
-
-    <section class="fart-section">
-      <h2 id="border-tubes">Border tubes</h2>
-      <p>
-        Border tubes <code>.border-tube-empty</code>, <code
-        >.border-tube-green</code>,
-        <code>.border-tube-purple</code>, <code>.border-tube-yellow</code>,
-        <code>.border-tube-turquoise</code>, <code>.border-tube-magenta</code>,
-        <code>.border-tube-orange</code>, and <code>.border-tube-blue</code> are
-        styled with an animated border image.
-      </p>
-
-      <h3>Example border tubes</h3>
-      <ul class="border-tubes-list">
-        <li>
-          <div class="border-tube-empty">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-empty</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-empty glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-empty</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-green">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-green</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-green glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-green</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-purple">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-purple</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-purple glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-purple</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-yellow">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-yellow</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-yellow glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-yellow</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-turquoise">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-turquoise</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-turquoise glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-turquoise</code>
-              CSS class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-magenta">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-magenta</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-magenta glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-magenta</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-orange">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-orange</code> CSS
-              class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-orange glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-orange</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-blue">
-            <p class="border-tube-content">
-              Example border tube with <code>.border-tube-blue</code> CSS class.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div class="border-tube-blue glow">
-            <p class="border-tube-content">
-              Example border tube with the <code>.border-tube-blue</code> CSS
-              class and the <code>.glow</code> CSS class.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section class="fart-section">
-      <h2 id="bottom">You made it to the bottom!</h2>
-      <p>
-        Thanks for checking out Fart.css! If you have any questions or feedback,
-        <a
-          class="fart-button"
-          href="https://go.fart.tools/chat"
-          target="_blank"
-        >Chat<small>↗</small></a>
-        with the community on Discord and check out our
-        <a
-          class="fart-button"
-          href="https://github.com/FartLabs/fart.css"
-          target="_blank"
-        >&bigstar;Source<small>↗</small></a>
-        on GitHub! <a class="fart-button" href="#top">Top<small>↑</small></a>
-      </p>
-    </section>
-
-    <hr />
-
-    <footer>
+      <footer>
       <p>
         © FartLabs <a class="fart-logo" href="https://fart.tools">🧪</a>
         <br />
@@ -577,5 +913,48 @@ body {
         >Chat<small>↗</small></a>
       </p>
     </footer>
+    </div>
+
+    <script>
+      // Sidebar keyboard and focus management
+      const sidenav = document.querySelector("#sidenav-open");
+      const sidenavButton = document.querySelector("#sidenav-button");
+      const sidenavClose = document.querySelector("#sidenav-close");
+
+      // Press Escape to close
+      if (sidenav) {
+        sidenav.addEventListener("keyup", (event) => {
+          if (event.code === "Escape") {
+            document.location.hash = "";
+          }
+        });
+
+        // Focus management - only on transform transitions
+        let lastHash = document.location.hash;
+        sidenav.addEventListener("transitionend", (e) => {
+          // Only handle transform transitions, ignore others
+          if (e.propertyName !== "transform") return;
+
+          const currentHash = document.location.hash;
+          // Only focus if hash actually changed
+          if (currentHash !== lastHash) {
+            const isOpen = currentHash === "#sidenav-open";
+
+            if (isOpen && sidenavClose) {
+              sidenavClose.focus({ preventScroll: true });
+            } else if (!isOpen && sidenavButton) {
+              sidenavButton.focus({ preventScroll: true });
+            }
+
+            lastHash = currentHash;
+          }
+        });
+
+        // Track hash changes
+        window.addEventListener("hashchange", () => {
+          lastHash = document.location.hash;
+        });
+      }
+    </script>
   </body>
 </html>
