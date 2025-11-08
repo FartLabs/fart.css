@@ -32,7 +32,7 @@ export interface TextSpecialProps
  * );
  * ```
  *
- * @see https://css.fart.tools#text-special
+ * @see https://css.fart.tools#fart-text-special
  */
 export function TextSpecial(props: TextSpecialProps): string {
   return (

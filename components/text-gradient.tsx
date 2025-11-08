@@ -32,7 +32,7 @@ export interface TextGradientProps
  * );
  * ```
  *
- * @see https://css.fart.tools#text-gradient
+ * @see https://css.fart.tools#fart-text-gradient
  */
 export function TextGradient(props: TextGradientProps): string {
   return (

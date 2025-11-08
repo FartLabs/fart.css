@@ -23,6 +23,19 @@ export interface ButtonGroupProps
  * );
  * ```
  *
+ * @example
+ * ```tsx
+ * import { ButtonGroup, ButtonLink } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <ButtonGroup>
+ *     <ButtonLink href="/page1">First</ButtonLink>
+ *     <ButtonLink href="/page2">Second</ButtonLink>
+ *     <ButtonLink href="/page3">Third</ButtonLink>
+ *   </ButtonGroup>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#button-groups
  */
 export function ButtonGroup(props: ButtonGroupProps): string {

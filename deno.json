@@ -1,7 +1,7 @@
 {
   "lock": false,
   "name": "@fartlabs/css",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "exports": {
     ".": "./components/mod.ts",
     "./border-tube": "./components/border-tube.tsx",

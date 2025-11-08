@@ -18,6 +18,7 @@ export interface BorderTubeProps
  * TubeColor is the color variant for the BorderTube component.
  */
 export type TubeColor =
+  | "empty"
   | "blue"
   | "turquoise"
   | "purple"
@@ -28,6 +29,17 @@ export type TubeColor =
 
 /**
  * BorderTube is a div element with a Fart.css border tube style.
+ *
+ * @example
+ * ```tsx
+ * import { BorderTube } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <BorderTube color="empty">
+ *     <p>Content with an empty border tube</p>
+ *   </BorderTube>
+ * );
+ * ```
  *
  * @example
  * ```tsx
@@ -51,7 +63,7 @@ export type TubeColor =
  * );
  * ```
  *
- * @see https://css.fart.tools#border-tube
+ * @see https://css.fart.tools#border-tubes
  */
 export function BorderTube(props: BorderTubeProps): string {
   const className = `border-tube-${props.color}${props.glow ? " glow" : ""}`;
