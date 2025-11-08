@@ -74,16 +74,31 @@
         vertical-align: middle;
       }
 
+      .header-nav-separator {
+        flex: 1;
+        border: none;
+        border-top: 1px solid rgba(125, 216, 127, 0.2);
+        margin: 0;
+        padding: 0;
+        height: 0;
+        min-width: 1rem;
+      }
+
       @media (max-width: 640px) {
         .header-nav {
           flex-direction: column;
           align-items: flex-start;
           gap: var(--space-sm);
         }
+
+        .header-nav-separator {
+          width: 100%;
+          min-width: 0;
+        }
       }
 
-      /* Sidebar nav - explicitly exclude from global nav styles */
-      .sidebar-nav {
+      /* Sidebar content styles */
+      .sidebar-content {
         display: block;
         margin: 0;
         padding: 0;
@@ -100,14 +115,13 @@
         --duration: 0.3s;
         grid-area: stack;
         display: grid;
-        grid-template-columns: [nav] 2fr [escape] 1fr;
+        grid-template-columns: [content] 2fr [escape] 1fr;
         position: relative;
         z-index: var(--z-modal);
       }
 
-      #sidenav-nav,
-      .sidebar-nav {
-        grid-area: nav;
+      .sidebar-content {
+        grid-area: content;
       }
 
       #sidenav-escape {
@@ -234,7 +248,7 @@
           }
         }
 
-        .sidebar-nav {
+        .sidebar-content {
           background-color: var(--fart-dark-primary);
           padding: 1.5rem;
           box-shadow: var(--shadow-xl);
@@ -297,7 +311,7 @@
         color: var(--fart-primary);
       }
 
-      .sidebar-nav h2 {
+      .sidebar-content h2 {
         margin-top: 0;
         margin-bottom: 1rem;
         font-size: var(--font-size-lg);
@@ -307,7 +321,7 @@
         display: inline-block;
       }
 
-      .sidebar-nav h2::after {
+      .sidebar-content h2::after {
         content: "";
         position: absolute;
         bottom: 0;
@@ -475,7 +489,7 @@
   <body>
     <div id="sidenav-container">
       <aside id="sidenav-open">
-        <nav id="sidenav-nav" class="sidebar-nav">
+        <aside class="sidebar-content">
           <h2 id="toc">On this page</h2>
           <ul class="sidenav-toc">
             <li>
@@ -548,7 +562,7 @@
               </ul>
             </li>
           </ul>
-        </nav>
+        </aside>
         <a
           href="#"
           id="sidenav-close"
@@ -570,6 +584,7 @@
       <section class="fart-section">
         <nav class="header-nav">
           <h1 id="top" class="fart-header">Fart.css</h1>
+          <hr class="header-nav-separator" />
           <div style="display: flex; gap: 1rem; align-items: center">
             <a
               href="#sidenav-open"
@@ -601,7 +616,7 @@
           <a
             class="fart-button"
             href="#getting-started"
-          >Get Started</a>
+          >Get Started!</a>
           <a
             class="fart-button"
             href="https://jsr.io/@fartlabs/css/doc"
@@ -636,8 +651,12 @@
         <section class="fart-section">
           <h2 id="variables">Variables</h2>
           <p>
-            Fart.css provides a set of CSS variables
-            <code>var(--css-variable)</code> for colors:
+            Fart.css makes use of <a
+              href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties"
+              target="_blank"
+              rel="noopener"
+            >CSS variables</a>, which you can reference using <code
+            >var(--css-variable)</code> for colors:
           </p>
           <p>Colors are defined in the <a href="root.css">root.css</a> file.</p>
           <div class="code-block-container">

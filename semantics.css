@@ -216,6 +216,38 @@ hr,
   }
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-content);
+  margin: var(--space-base) auto var(--space-2xl) auto;
+  padding: var(--space-base);
+  gap: var(--space-base);
+  flex-wrap: wrap;
+}
+
+nav h1,
+nav .fart-header {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+nav .fart-button {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}
+
 a,
 .fart-link {
   color: var(--fart-primary);
