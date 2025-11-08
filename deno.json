@@ -1,7 +1,7 @@
 {
   "lock": false,
   "name": "@fartlabs/css",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "exports": {
     ".": "./components/mod.ts",
     "./button": "./components/button.tsx",
@@ -25,12 +25,12 @@
     "lint": "deno lint && deno doc --lint  components/**/*.ts",
     "check": "deno check **/*.ts",
     "publish:dry": "deno publish --dry-run --allow-dirty",
-    "outdated": "deno outdated --update --latest",
+    "outdated": "deno update --latest",
     "generate": "deno --allow-write --allow-read codegen/generate.ts && deno fmt"
   },
   "imports": {
-    "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.10",
-    "@std/http": "jsr:@std/http@^1.0.0",
+    "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.11",
+    "@std/http": "jsr:@std/http@^1.0.21",
     "alea": "npm:alea@^1.0.1",
     "simplex-noise": "npm:simplex-noise@^4.0.3",
     "turndown": "npm:turndown@^7.2.2"
