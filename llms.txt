@@ -1,0 +1,395 @@
+# Fart.css
+
+Fart.css is a CSS library of styles reusable across your ✨fart-tastic✨ frontends.
+
+## Quick Start
+
+Include the following line in the `<head>` of your HTML file:
+
+```html
+<link rel="stylesheet" type="text/css" href="https://css.fart.tools">
+```
+
+## Documentation
+
+## Getting started
+
+To get started with Fart.css, include the following line in the `<head>` of your HTML file:
+
+Copy code
+
+```html
+<link rel="stylesheet" type="text/css" href="https://css.fart.tools">
+```
+
+From there, you can use the classes and styles provided by the CSS library.
+
+## Variables
+
+Fart.css makes use of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties), which you can reference using `var(--css-variable)` for colors:
+
+Colors are defined in the [root.css](root.css) file.
+
+Copy code
+
+```css
+:root {
+  --fart-primary: #7dd87f;
+  --fart-dark-primary: #0f2a0f;
+  --fart-darker-dark-primary: #0a1f0a;
+  --fart-lighter-dark-primary: #004021;
+
+  --fart-secondary: #db7093;
+  --fart-highlight: rgba(74, 140, 86, 0.3);
+
+  --fart-white: #ddd;
+  --fart-off-white: #aaa;
+}
+```
+
+addEventListener("load", () => { const root = document.querySelector(":root"); const rootStyles = getComputedStyle(root); document.querySelectorAll(".preview-color").forEach( (el) => { const variableName = el.getAttribute( "data-var", ); if (!variableName) { return; } el.textContent = rootStyles.getPropertyValue( variableName, ).trim(); }, ); });
+
+## Fonts
+
+The [fonts.css](fonts.css) file imports [Overpass](https://fonts.google.com/specimen/Overpass) from Google Fonts.
+
+## Keyframes
+
+Fart.css provides a set of keyframes for animations in the [keyframes.css](keyframes.css) file.
+
+## Semantics
+
+Fart.css provides implicit styling for a set of common HTML elements in the [semantics.css](semantics.css) file.
+
+Body and HTML elements are styled with:
+
+Copy code
+
+```css
+html,
+body {
+  background-color: var(--fart-dark-primary);
+  color: var(--fart-white);
+  font-family: sans-serif;
+  margin: 0;
+}
+```
+
+Check out the available styles in the [semantics.css](semantics.css) file.
+
+### Headings
+
+Headings `<h1>` through `<h6>` are styled with a custom font and size.
+
+# Example h1
+
+## Example h2
+
+### Example h3
+
+#### Example h4
+
+##### Example h5
+
+###### Example h6
+
+Copy code
+
+```html
+<h1>Example h1</h1>
+<h2>Example h2</h2>
+<h3>Example h3</h3>
+<h4>Example h4</h4>
+<h5>Example h5</h5>
+<h6>Example h6</h6>
+```
+
+### Links
+
+Links `<a>`, `.fart-link`, and `.fart-link-visible-on-hover` are styled with a custom color and hover effect. Use `.fart-link-visible-on-hover` to style links whose underline is only visible on hover.
+
+*   [Example .fart-link](#links)
+*   [Example .fart-link-visible-on-hover](#links)
+
+Copy code
+
+```html
+<a class="fart-link" href="#">Example .fart-link</a>
+
+<a class="fart-link-visible-on-hover" href="#">Example .fart-link-visible-on-hover</a>
+```
+
+### Lists
+
+Lists `<ul>` and `<ol>` are styled with a custom color and padding.
+
+*   Example list item 1
+*   Example list item 2
+*   Example nested list
+    *   Example nested list item 1
+    *   Example nested list item 2
+
+Copy code
+
+```html
+<ul>
+  <li>Example list item 1</li>
+  <li>Example list item 2</li>
+  <li>
+    Example nested list
+    <ul>
+      <li>Example nested list item 1</li>
+      <li>Example nested list item 2</li>
+    </ul>
+  </li>
+</ul>
+```
+
+### Blockquotes
+
+Blockquotes `<blockquote>` are styled with a custom color and padding.
+
+> Example blockquote
+
+Copy code
+
+```html
+<blockquote>Example blockquote</blockquote>
+```
+
+### Horizontal rule
+
+Use `<hr>` or `.fart-hr` to create a horizontal rule. The rule is styled with `var(--fart-primary)`.
+
+* * *
+
+Copy code
+
+```html
+<hr>
+
+<!-- Or with class -->
+<hr class="fart-hr">
+```
+
+## Misc
+
+Fart.css provides miscellaneous styles in the [misc.css](misc.css) file.
+
+### Buttons
+
+Buttons `.fart-button` have a rounded button style with a custom color and hover effect.
+
+[Example button](#buttons)
+
+#### Disabled Buttons
+
+Disabled buttons can be created using the `:disabled` pseudo-class for `<button>` elements, or the `.fart-button-disabled` class for `<a>` elements. Disabled buttons are visually muted and do not respond to user interactions.
+
+Disabled button [Disabled link](#disabled-buttons)
+
+Copy code
+
+```html
+<!-- Using :disabled for button elements -->
+<button class="fart-button" disabled>Disabled button</button>
+
+<!-- Using class for anchor elements -->
+<a class="fart-button fart-button-disabled" href="#" aria-disabled="true" tabindex="-1" onclick="return false;">Disabled link</a>
+```
+
+#### Button Groups
+
+Button groups `.fart-button-group` allow you to group multiple buttons together on a single line with connected borders. Wrap multiple `.fart-button` elements in a container with the `.fart-button-group` class.
+
+[Google](#button-groups) [FartLabs](#button-groups) [Apple](#button-groups)
+
+Copy code
+
+```html
+<div class="fart-button-group">
+  <a class="fart-button" href="#">Google</a>
+  <a class="fart-button" href="#">FartLabs</a>
+  <a class="fart-button" href="#">Apple</a>
+</div>
+```
+
+### Sections
+
+Sections `.fart-section` are styled with a custom color and padding.
+
+Copy code
+
+```html
+<section class="fart-section">
+  <!-- Your content here -->
+</section>
+```
+
+### Headers
+
+Headers `.fart-header` are styled with a custom font and size.
+
+Example header
+
+Copy code
+
+```html
+<span class="fart-header">Example header</span>
+```
+
+### Text gradient
+
+Text gradients `.fart-text-gradient` are styled with a custom gradient.
+
+Example  
+text gradient
+
+Copy code
+
+```html
+<span class="fart-text-gradient">Example text gradient</span>
+```
+
+### Special text
+
+Special text `.fart-text-special` are styled with a custom gradient.
+
+The special text in a gradient.
+
+Copy code
+
+```html
+<span class="fart-text-gradient">
+  The <span class="fart-text-special">special text</span> in a gradient.
+</span>
+```
+
+### Sparkles
+
+Sparkles `.fart-sparkle` are styled with sparkle emojis on either side of the text content.
+
+Example sparkle
+
+Copy code
+
+```html
+<span class="fart-sparkle">Example sparkle</span>
+```
+
+### Hoverable logos
+
+Hoverable logos `.fart-logo` are styled with a custom animation on hover.
+
+🧪
+
+Copy code
+
+```html
+<a class="fart-logo" href="#">🧪</a>
+```
+
+## Border tubes
+
+Border tubes `.border-tube-empty`, `.border-tube-green`, `.border-tube-purple`, `.border-tube-yellow`, `.border-tube-turquoise`, `.border-tube-magenta`, `.border-tube-orange`, and `.border-tube-blue` are styled with an animated border image.
+
+### Example border tubes
+
+*   Example border tube with `.border-tube-empty` CSS class.
+    
+*   Example border tube with the `.border-tube-empty` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-green` CSS class.
+    
+*   Example border tube with the `.border-tube-green` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-purple` CSS class.
+    
+*   Example border tube with the `.border-tube-purple` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-yellow` CSS class.
+    
+*   Example border tube with the `.border-tube-yellow` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-turquoise` CSS class.
+    
+*   Example border tube with the `.border-tube-turquoise` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-magenta` CSS class.
+    
+*   Example border tube with the `.border-tube-magenta` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-orange` CSS class.
+    
+*   Example border tube with the `.border-tube-orange` CSS class and the `.glow` CSS class.
+    
+*   Example border tube with `.border-tube-blue` CSS class.
+    
+*   Example border tube with the `.border-tube-blue` CSS class and the `.glow` CSS class.
+    
+
+Copy code
+
+```html
+<!-- Basic border tube -->
+<div class="border-tube-empty">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<!-- Border tube with glow effect -->
+<div class="border-tube-empty glow">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<!-- Colored border tubes -->
+<div class="border-tube-green">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<div class="border-tube-purple">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<div class="border-tube-yellow">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<div class="border-tube-turquoise">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<div class="border-tube-magenta">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<div class="border-tube-orange">
+  <p class="border-tube-content">Your content here</p>
+</div>
+
+<div class="border-tube-blue">
+  <p class="border-tube-content">Your content here</p>
+</div>
+```
+
+## You made it to the bottom!
+
+Thanks for checking out Fart.css! If you have any questions or feedback, [Chat↗](https://go.fart.tools/chat) with the community on Discord and check out our [★Source↗](https://github.com/FartLabs/fart.css) on GitHub! [Top↑](#top)
+
+## Project Structure
+
+- `fart.css` - Main CSS file that imports all other stylesheets
+- `root.css` - CSS custom properties (variables) for colors, spacing, typography
+- `semantics.css` - Styles for semantic HTML elements (headings, links, lists, etc.)
+- `misc.css` - Miscellaneous utility classes (buttons, sections, headers, etc.)
+- `keyframes.css` - CSS animation keyframes
+- `fonts.css` - Font imports (Overpass from Google Fonts)
+- `tubes/` - Border tube SVG assets and CSS
+- `components/` - TypeScript/TSX component library for @fartlabs/htx
+- `index.html` - Documentation website
+
+## Links
+
+- Website: https://css.fart.tools
+- Source: https://github.com/FartLabs/fart.css
+- JSR Package: https://jsr.io/@fartlabs/css
+- Documentation: https://jsr.io/@fartlabs/css/doc

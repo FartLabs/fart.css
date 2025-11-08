@@ -17,19 +17,21 @@
   "tasks": {
     "dev": {
       "command": "deno serve -A --watch main.ts",
-      "description": "Run the dev server"
+      "description": "Run the dev server",
+      "dependencies": ["generate"]
     },
     "lint": "deno lint && deno doc --lint  components/**/*.ts",
     "check": "deno check **/*.ts",
     "publish:dry": "deno publish --dry-run --allow-dirty",
     "outdated": "deno outdated --update --latest",
-    "generate": "deno --allow-write codegen/generate.ts"
+    "generate": "deno --allow-write --allow-read codegen/generate.ts"
   },
   "imports": {
     "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.10",
     "@std/http": "jsr:@std/http@^1.0.0",
     "alea": "npm:alea@^1.0.1",
-    "simplex-noise": "npm:simplex-noise@^4.0.3"
+    "simplex-noise": "npm:simplex-noise@^4.0.3",
+    "turndown": "npm:turndown@^7.2.2"
   },
   "compilerOptions": {
     "jsx": "react-jsx",

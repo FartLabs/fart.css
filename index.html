@@ -153,6 +153,7 @@
           overflow-y: auto;
           overflow-x: hidden;
           padding: 2rem;
+          padding-bottom: 3rem;
           box-sizing: border-box;
           background-color: var(--fart-dark-primary);
           border-right: 1px solid rgba(125, 216, 127, 0.1);
@@ -192,8 +193,53 @@
 
       /* Mobile: slide-out sidebar */
       @media (max-width: 767px) {
+        /* Show floating hamburger button */
         #sidenav-button {
-          display: inline-flex;
+          display: inline-flex !important;
+          position: fixed !important;
+          bottom: 1.5rem !important;
+          right: 1.5rem !important;
+          left: auto !important;
+          top: auto !important;
+          z-index: 9999 !important;
+          background-color: rgba(10, 31, 10, 0.7);
+          backdrop-filter: blur(10px);
+          border: 2px solid var(--fart-primary);
+          outline: 0.5px solid rgba(255, 255, 255, 0.3);
+          outline-offset: -1px;
+          border-radius: 50%;
+          width: 56px;
+          height: 56px;
+          padding: 0;
+          margin: 0;
+          box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.3),
+            0 0 8px rgba(255, 255, 255, 0.15);
+          pointer-events: auto;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        }
+
+        #sidenav-button:is(:hover, :focus) {
+          background-color: var(--fart-primary);
+          color: var(--fart-dark-primary);
+          box-shadow: 0 6px 16px rgba(125, 216, 127, 0.4);
+        }
+
+        /* Fade out hamburger button when sidenav is open */
+        body:has(#sidenav-open:target) #sidenav-button {
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s ease;
+        }
+
+        /* Fallback for browsers without :has() support */
+        @supports not selector(:has(*)) {
+          #sidenav-open:target ~ .page-content #sidenav-button {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+          }
         }
 
         /* Prevent body scroll when sidebar is open */
@@ -251,6 +297,7 @@
         .sidebar-content {
           background-color: var(--fart-dark-primary);
           padding: 1.5rem;
+          padding-bottom: 2.5rem;
           box-shadow: var(--shadow-xl);
           overflow-y: auto;
           height: 100%;
@@ -272,7 +319,7 @@
 
       /* Sidebar button styles */
       #sidenav-button {
-        display: inline-flex;
+        display: none;
         align-items: center;
         justify-content: center;
         padding: 0.5rem;
@@ -281,12 +328,13 @@
         cursor: pointer;
         color: var(--fart-white);
         text-decoration: none;
-        position: relative;
-        z-index: calc(var(--z-modal) + 1);
+        transition: all 0.2s ease;
       }
 
-      #sidenav-button:is(:hover, :focus) {
-        color: var(--fart-primary);
+      @media (min-width: 768px) {
+        #sidenav-button:is(:hover, :focus) {
+          color: var(--fart-primary);
+        }
       }
 
       #sidenav-button svg {
@@ -587,17 +635,12 @@
           <hr class="header-nav-separator" />
           <div style="display: flex; gap: 1rem; align-items: center">
             <a
-              href="#sidenav-open"
-              id="sidenav-button"
-              title="Open Menu"
-              aria-label="Open Menu"
-            >
-              <svg viewBox="0 0 24 24">
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            </a>
+              class="fart-button"
+              href="/llms.txt"
+              id="copy-markdown-button"
+              title="Copy markdown documentation"
+              aria-label="Copy markdown documentation"
+            >Copy markdown</a>
             <a
               class="fart-button"
               href="https://github.com/FartLabs/fart.css"
@@ -605,6 +648,18 @@
             >&bigstar;Source<small>↗</small></a>
           </div>
         </nav>
+        <a
+          href="#sidenav-open"
+          id="sidenav-button"
+          title="Open Menu"
+          aria-label="Open Menu"
+        >
+          <svg viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </a>
 
         <p>
           Fart.css is a CSS library of styles reusable across your
@@ -1395,6 +1450,43 @@ body {
             });
           },
         );
+
+        // Initialize copy markdown button
+        const copyMarkdownButton = document.getElementById(
+          "copy-markdown-button",
+        );
+        if (copyMarkdownButton) {
+          copyMarkdownButton.addEventListener("click", async (e) => {
+            e.preventDefault();
+            const button = e.currentTarget;
+
+            try {
+              // Fetch the markdown content
+              const response = await fetch("/llms.txt");
+              if (!response.ok) {
+                throw new Error(
+                  `HTTP error! status: ${response.status}`,
+                );
+              }
+              const text = await response.text();
+
+              // Copy to clipboard
+              if (
+                navigator.clipboard && navigator.clipboard.writeText
+              ) {
+                await navigator.clipboard.writeText(text);
+                showCopyFeedback(button);
+              } else {
+                // Fallback for older browsers
+                fallbackCopy(text, button);
+              }
+            } catch (error) {
+              console.error("Failed to copy markdown:", error);
+              // On error, allow the link to work normally
+              window.location.href = button.href;
+            }
+          });
+        }
       });
     </script>
   </body>
