@@ -10,6 +10,15 @@
     />
     <link rel="stylesheet" type="text/css" href="/fart.css" />
     <link rel="icon" href="https://fart.tools/fl-logo.png" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/html.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"
+    ></script>
     <style>
       /* Page-specific styles for index.html */
       .border-tubes-list {
@@ -346,6 +355,83 @@
         padding-top: calc(var(--space-lg) + 1.5rem);
       }
 
+      /* Custom highlight.js styling to match fart.css theme */
+      .hljs {
+        background-color: var(--fart-dark-primary) !important;
+        color: var(--fart-white) !important;
+      }
+
+      /* Syntax highlighting colors */
+      .hljs-keyword,
+      .hljs-selector-tag,
+      .hljs-literal,
+      .hljs-title,
+      .hljs-section,
+      .hljs-doctag,
+      .hljs-type,
+      .hljs-name,
+      .hljs-strong {
+        color: var(--fart-primary);
+        font-weight: var(--font-weight-medium);
+      }
+
+      .hljs-comment,
+      .hljs-quote {
+        color: var(--fart-off-white);
+        font-style: italic;
+      }
+
+      .hljs-string,
+      .hljs-attr,
+      .hljs-attribute {
+        color: var(--fart-secondary);
+      }
+
+      .hljs-number,
+      .hljs-symbol,
+      .hljs-bullet {
+        color: var(--fart-secondary);
+      }
+
+      .hljs-variable,
+      .hljs-template-variable,
+      .hljs-selector-attr,
+      .hljs-selector-pseudo {
+        color: var(--fart-primary);
+      }
+
+      .hljs-built_in,
+      .hljs-builtin-name {
+        color: var(--fart-primary);
+      }
+
+      .hljs-tag,
+      .hljs-tag .hljs-name,
+      .hljs-tag .hljs-attr {
+        color: var(--fart-primary);
+      }
+
+      .hljs-meta,
+      .hljs-meta-keyword {
+        color: var(--fart-off-white);
+      }
+
+      .hljs-function,
+      .hljs-class .hljs-title {
+        color: var(--fart-primary);
+      }
+
+      .hljs-params {
+        color: var(--fart-white);
+      }
+
+      /* Preserve preview-color spans in variables code block */
+      .hljs .preview-color {
+        color: inherit !important;
+        font-weight: bold;
+        background-color: inherit !important;
+      }
+
       .copy-code-button {
         position: absolute;
         top: var(--space-sm);
@@ -539,7 +625,7 @@
             <button class="fart-button copy-code-button" type="button">
               Copy code
             </button>
-            <pre><code>&lt;link rel="stylesheet" type="text/css" href="https://css.fart.tools"&gt;</code></pre>
+            <pre><code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://css.fart.tools"&gt;</code></pre>
           </div>
           <p>
             From there, you can use the classes and styles provided by the CSS
@@ -559,7 +645,7 @@
               Copy code
             </button>
             <pre>
-<code>:root {
+<code class="language-css">:root {
   --fart-primary: <span class="preview-color" data-var="--fart-primary" style="font-weight: bold; color: var(--fart-primary);">#7dd87f</span>;
   --fart-dark-primary: <span class="preview-color" data-var="--fart-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-dark-primary);">#0f2a0f</span>;
   --fart-darker-dark-primary: <span class="preview-color" data-var="--fart-darker-dark-primary" style="font-weight: bold; background-color: var(--fart-off-white); color: var(--fart-darker-dark-primary);">#0a1f0a</span>;
@@ -625,7 +711,7 @@
               Copy code
             </button>
             <pre>
-<code>html,
+<code class="language-css">html,
 body {
   background-color: var(--fart-dark-primary);
   color: var(--fart-white);
@@ -657,7 +743,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;h1&gt;Example h1&lt;/h1&gt;
+<code class="language-html">&lt;h1&gt;Example h1&lt;/h1&gt;
 &lt;h2&gt;Example h2&lt;/h2&gt;
 &lt;h3&gt;Example h3&lt;/h3&gt;
 &lt;h4&gt;Example h4&lt;/h4&gt;
@@ -687,7 +773,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;a class="fart-link" href="#"&gt;Example .fart-link&lt;/a&gt;
+<code class="language-html">&lt;a class="fart-link" href="#"&gt;Example .fart-link&lt;/a&gt;
 
 &lt;a class="fart-link-visible-on-hover" href="#"&gt;Example .fart-link-visible-on-hover&lt;/a&gt;</code></pre>
           </div>
@@ -715,7 +801,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;ul&gt;
+<code class="language-html">&lt;ul&gt;
   &lt;li&gt;Example list item 1&lt;/li&gt;
   &lt;li&gt;Example list item 2&lt;/li&gt;
   &lt;li&gt;
@@ -739,7 +825,7 @@ body {
             <button class="fart-button copy-code-button" type="button">
               Copy code
             </button>
-            <pre><code>&lt;blockquote&gt;Example blockquote&lt;/blockquote&gt;</code></pre>
+            <pre><code class="language-html">&lt;blockquote&gt;Example blockquote&lt;/blockquote&gt;</code></pre>
           </div>
 
           <h3 id="fart-hr">Horizontal rule</h3>
@@ -756,7 +842,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;hr&gt;
+<code class="language-html">&lt;hr&gt;
 
 &lt;!-- Or with class --&gt;
 &lt;hr class="fart-hr"&gt;</code></pre>
@@ -798,7 +884,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;!-- Using :disabled for button elements --&gt;
+<code class="language-html">&lt;!-- Using :disabled for button elements --&gt;
 &lt;button class="fart-button" disabled&gt;Disabled button&lt;/button&gt;
 
 &lt;!-- Using class for anchor elements --&gt;
@@ -822,7 +908,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;div class="fart-button-group"&gt;
+<code class="language-html">&lt;div class="fart-button-group"&gt;
   &lt;a class="fart-button" href="#"&gt;Google&lt;/a&gt;
   &lt;a class="fart-button" href="#"&gt;FartLabs&lt;/a&gt;
   &lt;a class="fart-button" href="#"&gt;Apple&lt;/a&gt;
@@ -840,7 +926,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;section class="fart-section"&gt;
+<code class="language-html">&lt;section class="fart-section"&gt;
   &lt;!-- Your content here --&gt;
 &lt;/section&gt;</code></pre>
           </div>
@@ -856,7 +942,7 @@ body {
             <button class="fart-button copy-code-button" type="button">
               Copy code
             </button>
-            <pre><code>&lt;span class="fart-header"&gt;Example header&lt;/span&gt;</code></pre>
+            <pre><code class="language-html">&lt;span class="fart-header"&gt;Example header&lt;/span&gt;</code></pre>
           </div>
 
           <h3 id="fart-text-gradient">Text gradient</h3>
@@ -870,7 +956,7 @@ body {
             <button class="fart-button copy-code-button" type="button">
               Copy code
             </button>
-            <pre><code>&lt;span class="fart-text-gradient"&gt;Example text gradient&lt;/span&gt;</code></pre>
+            <pre><code class="language-html">&lt;span class="fart-text-gradient"&gt;Example text gradient&lt;/span&gt;</code></pre>
           </div>
 
           <h3 id="fart-text-special">Special text</h3>
@@ -888,7 +974,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;span class="fart-text-gradient"&gt;
+<code class="language-html">&lt;span class="fart-text-gradient"&gt;
   The &lt;span class="fart-text-special"&gt;special text&lt;/span&gt; in a gradient.
 &lt;/span&gt;</code></pre>
           </div>
@@ -904,7 +990,7 @@ body {
             <button class="fart-button copy-code-button" type="button">
               Copy code
             </button>
-            <pre><code>&lt;span class="fart-sparkle"&gt;Example sparkle&lt;/span&gt;</code></pre>
+            <pre><code class="language-html">&lt;span class="fart-sparkle"&gt;Example sparkle&lt;/span&gt;</code></pre>
           </div>
 
           <h3 id="fart-logo">Hoverable logos</h3>
@@ -921,7 +1007,7 @@ body {
             <button class="fart-button copy-code-button" type="button">
               Copy code
             </button>
-            <pre><code>&lt;a class="fart-logo" href="#"&gt;🧪&lt;/a&gt;</code></pre>
+            <pre><code class="language-html">&lt;a class="fart-logo" href="#"&gt;🧪&lt;/a&gt;</code></pre>
           </div>
         </section>
 
@@ -1090,7 +1176,7 @@ body {
               Copy code
             </button>
             <pre>
-<code>&lt;!-- Basic border tube --&gt;
+<code class="language-html">&lt;!-- Basic border tube --&gt;
 &lt;div class="border-tube-empty"&gt;
   &lt;p class="border-tube-content"&gt;Your content here&lt;/p&gt;
 &lt;/div&gt;
@@ -1221,8 +1307,9 @@ body {
 
       // Copy code functionality
       function copyCodeToClipboard(button, codeElement) {
-        // Get text content from code element, handling nested spans
-        const text = codeElement.innerText || codeElement.textContent;
+        // Get text content from code element, handling nested spans and hljs markup
+        // Use textContent to get plain text without HTML tags
+        const text = codeElement.textContent || codeElement.innerText;
 
         // Try modern Clipboard API first
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1267,8 +1354,16 @@ body {
         }, 2000);
       }
 
-      // Initialize copy buttons on page load
+      // Initialize copy buttons and highlight.js on page load
       addEventListener("load", () => {
+        // Initialize highlight.js for all code blocks
+        if (typeof hljs !== "undefined") {
+          document.querySelectorAll("pre code").forEach((block) => {
+            hljs.highlightElement(block);
+          });
+        }
+
+        // Initialize copy buttons
         document.querySelectorAll(".copy-code-button").forEach(
           (button) => {
             button.addEventListener("click", (e) => {
