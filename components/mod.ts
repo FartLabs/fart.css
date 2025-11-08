@@ -8,5 +8,6 @@ export * from "./link.tsx";
 export * from "./section.tsx";
 export * from "./shake.tsx";
 export * from "./sparkle.tsx";
+export * from "./table-wrap.tsx";
 export * from "./text-gradient.tsx";
 export * from "./text-special.tsx";

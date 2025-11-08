@@ -366,7 +366,7 @@ img {
 }
 
 /* Table styles */
-.table-wrap {
+.fart-table-wrap {
   overflow-x: auto;
   margin: var(--space-base) 0;
   border-radius: var(--radius-md);

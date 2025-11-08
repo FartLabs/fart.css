@@ -174,7 +174,7 @@ Copy code
 
 ### Tables
 
-Tables `<table>` are styled with a custom color scheme, borders, and hover effects. Wrap tables in a `.table-wrap` div for horizontal scrolling on mobile devices.
+Tables `<table>` are styled with a custom color scheme, borders, and hover effects. Wrap tables in a `.fart-table-wrap` div for horizontal scrolling on mobile devices.
 
 Type
 
@@ -203,7 +203,7 @@ Functional nature isn't the best for casual community discussions
 Copy code
 
 ```html
-<div class="table-wrap">
+<div class="fart-table-wrap">
   <table>
     <thead>
       <tr>
