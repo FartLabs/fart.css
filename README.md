@@ -35,6 +35,29 @@ Fart.css is available as a [`@fartlabs/htx`](https://jsr.io/@fartlabs/htx)
 component library. View the generated documentation,
 <https://jsr.io/@fartlabs/css/doc>.
 
+## Development
+
+Run `deno task dev` to start the development server.
+
+```bash
+deno task dev
+```
+
+This will start the development server at <http://localhost:8080>.
+
+Please run `deno task precommit` to run the precommit tasks before committing
+your changes.
+
+```bash
+deno task precommit
+```
+
+This will run the following tasks:
+
+- `deno task lint`
+- `deno task check`
+- `deno task generate`
+
 ## Websites that use Fart.css
 
 - [fartlabs.org](https://github.com/FartLabs/fartlabs.org)
