@@ -10,6 +10,19 @@ export interface HorizontalRuleProps
 /**
  * HorizontalRule is an hr element with a Fart.css horizontal rule style.
  *
+ * @example
+ * ```tsx
+ * import { HorizontalRule } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <div>
+ *     <p>Content above</p>
+ *     <HorizontalRule />
+ *     <p>Content below</p>
+ *   </div>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#fart-hr
  */
 export function HorizontalRule(props: HorizontalRuleProps): string {

@@ -10,6 +10,19 @@ export interface ButtonGroupProps
 /**
  * ButtonGroup is a div element that groups multiple buttons together with connected borders.
  *
+ * @example
+ * ```tsx
+ * import { ButtonGroup, Button } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <ButtonGroup>
+ *     <Button>First</Button>
+ *     <Button>Second</Button>
+ *     <Button>Third</Button>
+ *   </ButtonGroup>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#button-groups
  */
 export function ButtonGroup(props: ButtonGroupProps): string {

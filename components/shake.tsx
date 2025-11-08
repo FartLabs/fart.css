@@ -10,6 +10,28 @@ export interface ShakeProps
 /**
  * Shake is a span element with a Fart.css shake animation on hover.
  *
+ * @example
+ * ```tsx
+ * import { Shake } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Shake>
+ *     Hover me to shake!
+ *   </Shake>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { Shake } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <h1>
+ *     Welcome to <Shake>Fart.css</Shake>
+ *   </h1>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#fart-logo
  */
 export function Shake(props: ShakeProps): string {

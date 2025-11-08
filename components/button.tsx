@@ -10,6 +10,28 @@ export interface ButtonProps
 /**
  * Button is a button element with a Fart.css style.
  *
+ * @example
+ * ```tsx
+ * import { Button } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Button onClick="handleClick()">
+ *     Click Me
+ *   </Button>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { Button } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Button type="submit" disabled>
+ *     Submit Form
+ *   </Button>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#buttons
  */
 export function Button(props: ButtonProps): string {

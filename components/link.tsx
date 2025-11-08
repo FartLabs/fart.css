@@ -13,6 +13,28 @@ export interface LinkProps extends Exclude<Parameters<typeof A>[0], undefined> {
 /**
  * Link is an anchor element with a Fart.css style.
  *
+ * @example
+ * ```tsx
+ * import { Link } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Link href="/about">
+ *     About Us
+ *   </Link>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { Link } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Link href="/contact" variant="visible-on-hover">
+ *     Contact (hover to reveal)
+ *   </Link>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#links
  */
 export function Link(props: LinkProps): string {

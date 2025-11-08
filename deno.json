@@ -18,6 +18,10 @@
     "./text-special": "./components/text-special.tsx"
   },
   "tasks": {
+    "precommit": {
+      "description": "Run the precommit tasks",
+      "dependencies": ["check", "lint", "generate"]
+    },
     "dev": {
       "command": "deno serve -A --watch main.ts",
       "description": "Run the dev server",

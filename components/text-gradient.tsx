@@ -10,6 +10,28 @@ export interface TextGradientProps
 /**
  * TextGradient is a span element with a Fart.css text gradient style.
  *
+ * @example
+ * ```tsx
+ * import { TextGradient } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <TextGradient>
+ *     Gradient text effect
+ *   </TextGradient>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { TextGradient } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <h1>
+ *     Welcome to <TextGradient>Fart.css</TextGradient>
+ *   </h1>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#text-gradient
  */
 export function TextGradient(props: TextGradientProps): string {

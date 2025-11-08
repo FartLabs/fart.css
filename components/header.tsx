@@ -10,6 +10,29 @@ export interface HeaderProps
 /**
  * Header is a span element with a Fart.css header style.
  *
+ * @example
+ * ```tsx
+ * import { Header } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Header>
+ *     Welcome to My Site
+ *   </Header>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { Header } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <div>
+ *     <Header>Page Title</Header>
+ *     <p>Regular content follows</p>
+ *   </div>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#fart-header
  */
 export function Header(props: HeaderProps): string {

@@ -10,6 +10,28 @@ export interface SparkleProps
 /**
  * Sparkle is a span element with a Fart.css sparkle effect.
  *
+ * @example
+ * ```tsx
+ * import { Sparkle } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <Sparkle>
+ *     ✨ Sparkling text ✨
+ *   </Sparkle>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { Sparkle } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <p>
+ *     This text has a <Sparkle>sparkle effect</Sparkle> applied.
+ *   </p>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#fart-sparkle
  */
 export function Sparkle(props: SparkleProps): string {

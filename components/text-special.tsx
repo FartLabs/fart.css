@@ -10,6 +10,28 @@ export interface TextSpecialProps
 /**
  * TextSpecial is a span element with a slightly rotated Fart.css text style.
  *
+ * @example
+ * ```tsx
+ * import { TextSpecial } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <TextSpecial>
+ *     Rotated text effect
+ *   </TextSpecial>
+ * );
+ * ```
+ *
+ * @example
+ * ```tsx
+ * import { TextSpecial } from "jsr:@fartlabs/css";
+ *
+ * const html = (
+ *   <p>
+ *     Normal text with <TextSpecial>special rotated</TextSpecial> emphasis.
+ *   </p>
+ * );
+ * ```
+ *
  * @see https://css.fart.tools#text-special
  */
 export function TextSpecial(props: TextSpecialProps): string {
