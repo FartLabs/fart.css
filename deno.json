@@ -4,6 +4,7 @@
   "version": "0.0.10",
   "exports": {
     ".": "./components/mod.ts",
+    "./border-tube": "./components/border-tube.tsx",
     "./button": "./components/button.tsx",
     "./button-group": "./components/button-group.tsx",
     "./button-link": "./components/button-link.tsx",

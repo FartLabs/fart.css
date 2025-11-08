@@ -1,3 +1,4 @@
+export * from "./border-tube.tsx";
 export * from "./button.tsx";
 export * from "./button-group.tsx";
 export * from "./button-link.tsx";
