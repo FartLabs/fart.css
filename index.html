@@ -134,7 +134,8 @@
           background-color: var(--fart-dark-primary);
           border-right: 1px solid rgba(125, 216, 127, 0.1);
           scrollbar-width: thin;
-          scrollbar-color: var(--fart-lighter-dark-primary) var(--fart-dark-primary);
+          scrollbar-color: var(--fart-lighter-dark-primary)
+            var(--fart-dark-primary);
         }
 
         #sidenav-open::-webkit-scrollbar {
@@ -298,7 +299,7 @@
       }
 
       .sidebar-nav h2::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 0;
         left: 0;
@@ -437,52 +438,52 @@
     </div>
 
     <div class="page-content">
-    <section class="fart-section">
-      <nav class="header-nav">
-        <h1 id="top" class="fart-header">Fart.css</h1>
-        <div style="display: flex; gap: 1rem; align-items: center">
-          <a
-            href="#sidenav-open"
-            id="sidenav-button"
-            title="Open Menu"
-            aria-label="Open Menu"
-          >
-            <svg viewBox="0 0 24 24">
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </a>
+      <section class="fart-section">
+        <nav class="header-nav">
+          <h1 id="top" class="fart-header">Fart.css</h1>
+          <div style="display: flex; gap: 1rem; align-items: center">
+            <a
+              href="#sidenav-open"
+              id="sidenav-button"
+              title="Open Menu"
+              aria-label="Open Menu"
+            >
+              <svg viewBox="0 0 24 24">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </a>
+            <a
+              class="fart-button"
+              href="https://github.com/FartLabs/fart.css"
+              target="_blank"
+            >&bigstar;Source<small>↗</small></a>
+          </div>
+        </nav>
+
+        <p>
+          Fart.css is a CSS library of styles reusable across your
+          <span class="fart-sparkle">fart-tastic</span>
+          frontends.
+        </p>
+
+        <div class="hero-ctas">
           <a
             class="fart-button"
-            href="https://github.com/FartLabs/fart.css"
+            href="#getting-started"
+          >Get Started</a>
+          <a
+            class="fart-button"
+            href="https://jsr.io/@fartlabs/css/doc"
             target="_blank"
-          >&bigstar;Source<small>↗</small></a>
+          >View Components<small>↗</small></a>
         </div>
-      </nav>
 
-      <p>
-        Fart.css is a CSS library of styles reusable across your
-        <span class="fart-sparkle">fart-tastic</span>
-        frontends.
-      </p>
+        <img src="bookcover.png" alt="Fart.css book cover" />
+      </section>
 
-      <div class="hero-ctas">
-        <a
-          class="fart-button"
-          href="#getting-started"
-        >Get Started</a>
-        <a
-          class="fart-button"
-          href="https://jsr.io/@fartlabs/css/doc"
-          target="_blank"
-        >View Components<small>↗</small></a>
-      </div>
-
-      <img src="bookcover.png" alt="Fart.css book cover" />
-    </section>
-
-    <main class="main-content">
+      <main class="main-content">
         <section class="fart-section">
           <h2 id="getting-started">
             Getting started
@@ -893,26 +894,26 @@ body {
       <hr />
 
       <footer>
-      <p>
-        © FartLabs <a class="fart-logo" href="https://fart.tools">🧪</a>
-        <br />
-        <a
-          class="fart-button"
-          href="https://fart.tools/blog"
-          target="_blank"
-        >Blog<small>↗</small></a>
-        <a
-          class="fart-button"
-          href="https://github.com/FartLabs"
-          target="_blank"
-        >GitHub<small>↗</small></a>
-        <a
-          class="fart-button"
-          href="https://go.fart.tools/chat"
-          target="_blank"
-        >Chat<small>↗</small></a>
-      </p>
-    </footer>
+        <p>
+          © FartLabs <a class="fart-logo" href="https://fart.tools">🧪</a>
+          <br />
+          <a
+            class="fart-button"
+            href="https://fart.tools/blog"
+            target="_blank"
+          >Blog<small>↗</small></a>
+          <a
+            class="fart-button"
+            href="https://github.com/FartLabs"
+            target="_blank"
+          >GitHub<small>↗</small></a>
+          <a
+            class="fart-button"
+            href="https://go.fart.tools/chat"
+            target="_blank"
+          >Chat<small>↗</small></a>
+        </p>
+      </footer>
     </div>
 
     <script>
