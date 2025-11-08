@@ -41,10 +41,27 @@
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
+  font-family: inherit;
+  line-height: inherit;
   transition: all var(--transition-base);
   cursor: pointer;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: baseline;
+}
 
-  @media (max-width: 640px) {
+.fart-button,
+.fart-button:is(button, a) {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.fart-button:is(button) {
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .fart-button {
     padding: 0.125rem var(--space-xs);
     font-size: var(--font-size-xs);
   }
@@ -64,6 +81,38 @@
   outline: 2px solid var(--fart-primary);
   outline-offset: 3px;
   border-radius: var(--radius-md);
+}
+
+.fart-button:disabled,
+.fart-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: var(--fart-off-white);
+  border-color: var(--fart-off-white);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.fart-button:disabled:hover,
+.fart-button:disabled:active,
+.fart-button:disabled:focus,
+.fart-button-disabled:hover,
+.fart-button-disabled:active,
+.fart-button-disabled:focus {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: transparent;
+  border-color: var(--fart-off-white);
+  color: var(--fart-off-white);
+}
+
+.fart-button:disabled:focus-visible,
+.fart-button-disabled:focus-visible {
+  cursor: not-allowed;
+  pointer-events: none;
+  outline: 2px solid var(--fart-off-white);
+  outline-offset: 3px;
 }
 
 .fart-button-group {

@@ -396,6 +396,9 @@
                   <a href="#buttons">Buttons</a>
                   <ul>
                     <li>
+                      <a href="#disabled-buttons">Disabled Buttons</a>
+                    </li>
+                    <li>
                       <a href="#button-groups">Button Groups</a>
                     </li>
                   </ul>
@@ -664,6 +667,29 @@ body {
             custom color and hover effect.
           </p>
           <a class="fart-button" href="#buttons">Example button</a>
+
+          <h4 id="disabled-buttons">Disabled Buttons</h4>
+          <p>
+            Disabled buttons can be created using the <code>:disabled</code>
+            pseudo-class for <code>&lt;button&gt;</code> elements, or the
+            <code>.fart-button-disabled</code> class for <code>&lt;a&gt;</code>
+            elements. Disabled buttons are visually muted and do not respond to
+            user interactions.
+          </p>
+          <button class="fart-button" disabled>Disabled button</button>
+          <a
+            class="fart-button fart-button-disabled"
+            href="#disabled-buttons"
+            aria-disabled="true"
+            tabindex="-1"
+            onclick="return false;"
+          >Disabled link</a>
+          <pre>
+<code>&lt;!-- Using :disabled for button elements --&gt;
+&lt;button class="fart-button" disabled&gt;Disabled button&lt;/button&gt;
+
+&lt;!-- Using class for anchor elements --&gt;
+&lt;a class="fart-button fart-button-disabled" href="#" aria-disabled="true" tabindex="-1" onclick="return false;"&gt;Disabled link&lt;/a&gt;</code></pre>
 
           <h4 id="button-groups">Button Groups</h4>
           <p>
