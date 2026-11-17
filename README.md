@@ -72,6 +72,17 @@ This will run the following tasks:
 [Open an issue](https://github.com/FartLabs/fart.css/issues/new) to add your
 website to this list.
 
+## Deploying css.fart.tools
+
+The site runs as the `css-fart-tools` Cloudflare Worker. The stylesheets, the
+demo page, and the tube images are static assets, and `worker/worker.ts` returns
+`fart.css` for `GET /` when the request has `Accept: text/css`.
+
+```sh
+deno task build:worker # copies the served files into dist/
+npx wrangler deploy    # uploads the Worker and attaches css.fart.tools
+```
+
 ---
 
 Developed with 💖 [**@FartLabs**](https://github.com/FartLabs)
