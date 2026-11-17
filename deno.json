@@ -32,9 +32,14 @@
     "check": "deno check **/*.ts",
     "publish:dry": "deno publish --dry-run --allow-dirty",
     "outdated": "deno update --latest",
-    "generate": "deno --allow-write --allow-read codegen/generate.ts && deno fmt"
+    "generate": "deno --allow-write --allow-read codegen/generate.ts && deno fmt",
+    "build:worker": "deno run -A worker/build.ts"
+  },
+  "publish": {
+    "exclude": ["worker/", "wrangler.jsonc", "dist/"]
   },
   "imports": {
+    "@std/fs": "jsr:@std/fs@^1.0.23",
     "@fartlabs/htx": "jsr:@fartlabs/htx@^0.0.11",
     "@std/http": "jsr:@std/http@^1.0.21",
     "alea": "npm:alea@^1.0.1",
