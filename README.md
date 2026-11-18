@@ -78,6 +78,11 @@ The site runs as the `css-fart-tools` Cloudflare Worker. The stylesheets, the
 demo page, and the tube images are static assets, and `worker/worker.ts` returns
 `fart.css` for `GET /` when the request has `Accept: text/css`.
 
+Every push to `main` deploys through Cloudflare Workers Builds. The build image
+has no Deno, so the build command is
+`npm i -g deno@2.9.6 && deno task build:worker`, followed by
+`npx wrangler deploy`. To deploy by hand:
+
 ```sh
 deno task build:worker # copies the served files into dist/
 npx wrangler deploy    # uploads the Worker and attaches css.fart.tools
